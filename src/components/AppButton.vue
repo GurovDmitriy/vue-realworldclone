@@ -11,6 +11,8 @@
 
 <script>
 export default {
+  name: "AppButton",
+
   props: {
     dataItem: {
       type: Object,

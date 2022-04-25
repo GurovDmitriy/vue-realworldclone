@@ -1,12 +1,12 @@
 <template>
   <div class="author">
-    <NuxtLink class="author__img-box" :to="{ path: dataItem.pathLink }">
+    <RouterLink class="author__img-box" :to="{ path: dataItem.pathLink }">
       <AppImage class="author__img" :data-item="dataItem" />
-    </NuxtLink>
+    </RouterLink>
     <div class="author__info-box">
-      <NuxtLink class="author__name" :to="{ path: dataItem.pathLink }">
+      <RouterLink class="author__name" :to="{ path: dataItem.pathLink }">
         {{ dataItem.userName }}
-      </NuxtLink>
+      </RouterLink>
       <time class="author__time-feed" :datetime="dataItem.time">
         {{ dataItem.time | dateFormatBase }}
       </time>
@@ -15,7 +15,15 @@
 </template>
 
 <script>
+import AppImage from "~/components/AppImage"
+
 export default {
+  name: "AppAuthor",
+
+  components: {
+    AppImage,
+  },
+
   props: {
     dataItem: {
       type: Object,

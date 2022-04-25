@@ -6,6 +6,8 @@
 
 <script>
 export default {
+  name: "AppBurger",
+
   methods: {
     emitClickBtn() {
       this.$emit("clickBtn")

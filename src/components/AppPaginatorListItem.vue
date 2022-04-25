@@ -1,13 +1,13 @@
 <template>
   <li class="paginator-list-item">
-    <NuxtLink
+    <RouterLink
       class="paginator-list-item__link"
       :class="getClassActive"
       :to="{
         path: dataItem.pathPage,
         query: { page: dataItem.page },
       }"
-      >{{ dataItem.page }}</NuxtLink
+      >{{ dataItem.page }}</RouterLink
     >
   </li>
 </template>

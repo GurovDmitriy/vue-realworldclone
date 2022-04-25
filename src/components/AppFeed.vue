@@ -9,7 +9,15 @@
 </template>
 
 <script>
+import AppTagsList from "~/components/AppTagsList"
+
 export default {
+  name: "AppFeed",
+
+  components: {
+    AppTagsList,
+  },
+
   props: {
     dataItem: {
       type: Object,

@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="{ path: '/' }" class="logo">RWC</NuxtLink>
+  <RouterLink :to="{ path: '/' }" class="logo">RWC</RouterLink>
 </template>
 
 <style lang="scss">

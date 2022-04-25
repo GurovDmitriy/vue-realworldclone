@@ -17,7 +17,19 @@
 </template>
 
 <script>
+import AppFeedListItemHeader from "~/components/AppFeedListItemHeader"
+import AppFeedListItemPreview from "~/components/AppFeedListItemPreview"
+import AppFeedListItemFooter from "~/components/AppFeedListItemFooter"
+
 export default {
+  name: "AppFeedListItem",
+
+  components: {
+    AppFeedListItemHeader,
+    AppFeedListItemPreview,
+    AppFeedListItemFooter,
+  },
+
   props: {
     dataItem: {
       type: Object,

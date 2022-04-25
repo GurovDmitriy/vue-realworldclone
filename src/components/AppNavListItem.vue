@@ -1,8 +1,8 @@
 <template>
   <li class="nav-list-item">
-    <NuxtLink :to="{ path: dataItem.path }" class="nav-list-item__link">{{
+    <RouterLink :to="{ path: dataItem.path }" class="nav-list-item__link">{{
       dataItem.content
-    }}</NuxtLink>
+    }}</RouterLink>
   </li>
 </template>
 

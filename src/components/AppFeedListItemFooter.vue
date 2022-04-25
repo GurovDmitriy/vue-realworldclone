@@ -1,11 +1,11 @@
 <template>
   <div class="feed-list-item-footer">
-    <NuxtLink
+    <RouterLink
       :to="{
         path: dataItem.pathFeed,
       }"
       class="feed-list-item-footer__read-more"
-      >Read more...</NuxtLink
+      >Read more...</RouterLink
     >
     <AppTagsList
       :data-item="dataItem.tags"
@@ -15,7 +15,15 @@
 </template>
 
 <script>
+import AppTagsList from "~/components/AppTagsList"
+
 export default {
+  name: "AppFeedListItemFooter",
+
+  components: {
+    AppTagsList,
+  },
+
   props: {
     dataItem: {
       type: Object,

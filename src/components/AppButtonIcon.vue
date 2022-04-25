@@ -17,6 +17,12 @@
 
 <script>
 export default {
+  name: "AppButtonIcon",
+
+  // components: {
+  //   SvgIcon,
+  // },
+
   props: {
     dataItem: {
       type: Object,

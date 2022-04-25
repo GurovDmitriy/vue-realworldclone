@@ -1,10 +1,10 @@
 <template>
   <li class="filter-bar-item">
-    <NuxtLink
+    <RouterLink
       :to="{ path: dataItem.path }"
       class="filter-bar-item__link"
       :class="getClassActive"
-      >{{ dataItem.content }}</NuxtLink
+      >{{ dataItem.content }}</RouterLink
     >
   </li>
 </template>

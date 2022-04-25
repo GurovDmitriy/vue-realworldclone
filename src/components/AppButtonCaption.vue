@@ -11,7 +11,15 @@
 </template>
 
 <script>
+import AppButtonIcon from "~/components/AppButtonIcon"
+
 export default {
+  name: "AppButtonCaption",
+
+  components: {
+    AppButtonIcon,
+  },
+
   props: {
     dataItem: {
       type: Object,
