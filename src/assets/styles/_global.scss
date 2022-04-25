@@ -1,0 +1,126 @@
+:root {
+  --color-black: #{$color-black};
+  --color-white: #{$color-white};
+
+  // palette
+  --color-default: #{$color-default};
+  --color-primary: #{$color-primary};
+  --color-info: #{$color-info};
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-danger: #{$color-danger};
+
+  // palette
+  --color-gray-nurse: #{$color-gray-nurse};
+  --color-amethyst-smoke: #{$color-amethyst-smoke};
+  --color-east-side: #{$color-east-side};
+  --color-rum: #{$color-rum};
+  --color-oxford-blue: #{$color-oxford-blue};
+}
+
+html {
+  box-sizing: border-box;
+  min-width: $min-width-document;
+  min-height: 100vh;
+
+  color: $var-color-black;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-base-mobile;
+  font-family: $font-family-base;
+  font-style: normal;
+  line-height: $line-height-base;
+
+  @media (min-width: $min-width-tablet) {
+    font-size: $font-size-base-tablet;
+  }
+}
+
+body {
+  min-height: 100vh;
+}
+
+#__nuxt {
+  min-height: 100vh;
+}
+
+#__layout {
+  min-height: 100vh;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.2s;
+}
+
+.layout-enter,
+.layout-leave-active {
+  opacity: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.elements-enter {
+  opacity: 0;
+}
+
+.elements-enter-to {
+  opacity: 1;
+}
+
+.elements-enter-active {
+  animation-name: elements-in;
+  animation-duration: 0.8s;
+}
+
+.elements-leave {
+  opacity: 1;
+}
+
+.elements-leave-to {
+  opacity: 0;
+}

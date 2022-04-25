@@ -1,0 +1,46 @@
+/* container */
+@mixin container($max-width: $max-width-container) {
+  display: block;
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-right: $space-l;
+  padding-left: $space-l;
+}
+
+/* captions */
+@mixin caption-h1 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h1;
+  line-height: $line-height-h1;
+}
+
+@mixin caption-h2 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h2;
+  line-height: $line-height-h2;
+}
+
+@mixin caption-h3 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h3;
+  line-height: $line-height-h3;
+}
+
+@mixin caption-h4 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h4;
+  line-height: $line-height-h4;
+}
+
+@mixin text-default {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+}
+
+@mixin text-small {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+}

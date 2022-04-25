@@ -1,0 +1,95 @@
+/* stylelint-disable custom-property-pattern */
+/* stylelint-disable scss/dollar-variable-pattern */
+
+/* use */
+@use "sass:math";
+
+/* color sass var */
+$color-black: #000000;
+$color-white: #ffffff;
+
+// palette
+$color-default: #999999;
+$color-primary: #ac89c4;
+$color-info: #3d435a;
+$color-success: #69a473;
+$color-warning: #e6943b;
+$color-danger: #f44336;
+
+// palette
+$color-gray-nurse: #fbfafb;
+$color-amethyst-smoke: #f5f5f5;
+$color-east-side: #ac8ac3;
+$color-rum: #7c728d;
+$color-oxford-blue: #3c4259;
+
+/* color css var */
+$var-color-black: var(--color-black, $color-black);
+$var-color-white: var(--color-white, $color-white);
+
+// var palette
+$var-color-default: var(--color-default, $color-default);
+$var-color-primary: var(--color-primary, $color-primary);
+$var-color-info: var(--color-info, $color-info);
+$var-color-success: var(--color-success, $color-success);
+$var-color-warning: var(--color-warning, $color-warning);
+$var-color-danger: var(--color-danger, $color-danger);
+
+// var palette
+$var-color-gray-nurse: var(--color-gray-nurse, $color-gray-nurse);
+$var-color-amethyst-smoke: var(--color-amethyst-smoke, $color-amethyst-smoke);
+$var-color-east-side: var(--color-east-side, $color-east-side);
+$var-color-rum: var(--color-rum, $color-rum);
+$var-color-oxford-blue: var(--color-oxford-blue, $color-oxford-blue);
+
+/* min width document */
+$min-width-document: 360px;
+
+/* container */
+$max-width-container: 1440px;
+
+/* viewport */
+$min-width-tablet: 600px;
+$min-width-desktop: 1100px;
+
+/* fonts */
+$font-size-base: 16;
+$font-size-base-mobile: 14px;
+$font-size-base-tablet: 16px;
+$line-height-base: 1.6;
+$font-family-base: "Open Sans", "Arial", "Helvetica", sans-serif;
+
+/* rem */
+$rem: (math.div(1, $font-size-base) * 1rem);
+
+/* captions */
+$font-size-h1: (42 * $rem);
+$line-height-h1: 1.7;
+$font-size-h2: (33 * $rem);
+$line-height-h2: 1.7;
+$font-size-h3: (26 * $rem);
+$line-height-h3: 1.8;
+$font-size-h4: (16 * $rem);
+$line-height-h4: $line-height-base;
+$font-size-default: (16 * $rem);
+$line-height-default: $line-height-base;
+$font-size-small: (13 * $rem);
+$line-height-small: 2.2;
+
+/* font-weight */
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+/* spacing */
+$space-xxs: (2 * $rem);
+$space-xs: (4 * $rem);
+$space-s: (7 * $rem);
+$space-m: (12 * $rem);
+$space-l: (20 * $rem);
+$space-xl: (33 * $rem);
+$space-xxl: (53 * $rem);

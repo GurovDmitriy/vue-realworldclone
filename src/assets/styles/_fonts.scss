@@ -1,0 +1,17 @@
+$map-fonts: (
+  $font-weight-regular: "Regular",
+  $font-weight-light: "Light",
+  $font-weight-bold: "Bold",
+);
+
+@each $name, $value in $map-fonts {
+  @font-face {
+    font-weight: $name;
+    font-family: "Open Sans";
+    font-style: normal;
+    src: local("Open Sans #{$value}"), local("Open-Sans-#{$value}"),
+      local("OpenSans-#{$value}"), local("OpenSans #{$value}"),
+      url("~assets/fonts/OpenSans-#{$value}.woff2");
+    font-display: optional;
+  }
+}
