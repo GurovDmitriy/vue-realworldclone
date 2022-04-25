@@ -1,0 +1,54 @@
+{
+  "name": "template-vue-realworldclone",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
+    "lint:eslint": "eslint --fix --ext \".vue,.js\" --ignore-path .eslintignore .",
+    "lint:stylelint": "stylelint --fix \"**/*.{vue,css,less,scss,html}\" --ignore-path .stylelintignore",
+    "lint:prettier": "prettier --write \"**/*.{vue,js,css,less,scss,html,md}\" --ignore-path .prettierignore",
+    "lint:prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{vue,js}": "eslint --fix",
+    "*.{vue,css,less,scss,html}": "stylelint --fix",
+    "*.{vue,js,css,less,scss,html,md}": "prettier --write"
+  },
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.0",
+    "postcss-html": "^1.4.1",
+    "prettier": "^2.4.1",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "stylelint": "^14.7.1",
+    "stylelint-config-html": "^1.0.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0",
+    "vue-template-compiler": "^2.6.14"
+  }
+}
