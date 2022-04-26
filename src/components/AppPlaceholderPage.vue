@@ -7,6 +7,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "AppPlaceholderPage",
+}
+</script>
+
 <style lang="scss">
 .placeholder-page {
   @include container;

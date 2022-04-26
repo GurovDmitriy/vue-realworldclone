@@ -14,6 +14,8 @@
 
 <script>
 export default {
+  name: "AppPaginatorListItem",
+
   props: {
     dataItem: {
       type: Object,

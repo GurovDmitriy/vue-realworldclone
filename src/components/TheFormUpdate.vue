@@ -70,6 +70,12 @@
 </template>
 
 <script>
+import AppForm from "~/components/AppForm"
+import AppInput from "~/components/AppInput"
+import AppInputTextarea from "~/components/AppInputTextarea"
+import AppFormErrors from "~/components/AppFormErrors"
+import AppButton from "~/components/AppButton"
+
 import { mapGetters, mapState } from "vuex"
 import { getStrKebabCase } from "~/helpers/utils"
 import FormCreateFeed from "~/mixins/formCreateFeed"
@@ -79,6 +85,16 @@ import { getterTypes as getterTypesAuth } from "~/store/auth"
 import { actionTypes as actionTypesFeed } from "~/store/feed"
 
 export default {
+  name: "TheFormUpdate",
+
+  components: {
+    AppInputTextarea,
+    AppForm,
+    AppInput,
+    AppFormErrors,
+    AppButton,
+  },
+
   mixins: [FormCreateFeed, FormReset, FormValidation],
 
   data() {

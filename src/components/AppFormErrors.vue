@@ -10,7 +10,15 @@
 </template>
 
 <script>
+import AppFormErrorsItem from "~/components/AppFormErrorsItem"
+
 export default {
+  name: "AppFormErrors",
+
+  components: {
+    AppFormErrorsItem,
+  },
+
   props: {
     dataItem: {
       type: Object,

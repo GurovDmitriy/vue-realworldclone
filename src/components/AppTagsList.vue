@@ -10,6 +10,18 @@
 </template>
 
 <script>
+import AppTagsListItem from "~/components/AppTagsListItem"
+
+export default {
+  name: "AppTagsList",
+
+  components: {
+    AppTagsListItem,
+  },
+}
+</script>
+
+<script>
 export default {
   props: {
     dataItem: {

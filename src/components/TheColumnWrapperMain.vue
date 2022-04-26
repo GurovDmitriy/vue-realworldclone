@@ -9,6 +9,20 @@
   </div>
 </template>
 
+<script>
+import TheColumnWrapperMainLeft from "~/components/TheColumnWrapperMainLeft"
+import TheColumnWrapperMainRight from "~/components/TheColumnWrapperMainRight"
+
+export default {
+  name: "TheColumnWrapperMain",
+
+  components: {
+    TheColumnWrapperMainLeft,
+    TheColumnWrapperMainRight,
+  },
+}
+</script>
+
 <style lang="scss">
 .column-wrapper-main {
   @media (min-width: $min-width-tablet) {

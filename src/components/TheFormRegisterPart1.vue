@@ -41,7 +41,15 @@
 </template>
 
 <script>
+import AppInput from "~/components/AppInput"
+
 export default {
+  name: "TheFormRegisterPart1",
+
+  components: {
+    AppInput,
+  },
+
   props: {
     dataItem: {
       type: Object,

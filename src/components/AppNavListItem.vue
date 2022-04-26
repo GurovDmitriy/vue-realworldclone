@@ -8,6 +8,8 @@
 
 <script>
 export default {
+  name: "AppNavListItem",
+
   props: {
     dataItem: {
       type: Object,

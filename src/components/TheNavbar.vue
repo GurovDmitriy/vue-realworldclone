@@ -17,10 +17,24 @@
 </template>
 
 <script>
+import AppLogo from "~/components/AppLogo"
+import AppBurger from "~/components/AppBurger"
+import AppNavList from "~/components/AppNavList"
+import AppLoading from "~/components/AppLoading"
+
 import { mapGetters, mapState } from "vuex"
 import { getterTypes as getterTypesAuth } from "~/store/auth"
 
 export default {
+  name: "TheNavbar",
+
+  components: {
+    AppLogo,
+    AppBurger,
+    AppNavList,
+    AppLoading,
+  },
+
   data() {
     return {
       navList: {

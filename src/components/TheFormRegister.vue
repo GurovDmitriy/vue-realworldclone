@@ -8,15 +8,13 @@
     >
       <template #default>
         <KeepAlive>
-          <Transition name="elements">
-            <Component
-              :is="getActivePart"
-              :data-item="field"
-              class="form-register__fieldset"
-              @inputUser="setField"
-              @blurField="setCheckField($event, 'sign')"
-            />
-          </Transition>
+          <Component
+            :is="getActivePart"
+            :data-item="field"
+            class="form-register__fieldset"
+            @inputUser="setField"
+            @blurField="setCheckField($event, 'sign')"
+          />
         </KeepAlive>
       </template>
       <template #box-btn>
@@ -53,14 +51,21 @@
 </template>
 
 <script>
+import AppForm from "~/components/AppForm"
+import AppFormErrors from "~/components/AppFormErrors"
+import AppButton from "~/components/AppButton"
+
 import { mapState } from "vuex"
 import FormValidation from "~/mixins/formValidation"
 import { actionTypes as actionTypesAuth } from "~/store/auth"
 
 export default {
-  transitions: {
-    name: "elements",
-    mode: "out-in",
+  name: "TheFormRegister",
+
+  components: {
+    AppForm,
+    AppFormErrors,
+    AppButton,
   },
 
   mixins: [FormValidation],

@@ -12,6 +12,8 @@
 
 <script>
 export default {
+  name: "AppForm",
+
   props: {
     dataItem: {
       type: Object,

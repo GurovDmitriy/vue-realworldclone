@@ -5,14 +5,12 @@
       :data-item="getDataFilterBar"
       class="column-wrapper-main-left__filter-bar"
     />
-    <Transition name="elements">
-      <AppFeedList
-        v-if="getFeedList"
-        :data-item="getDataFeedList"
-        class="column-wrapper-main-left__feed-list"
-        @toggleLike="toggleLike($event)"
-      />
-    </Transition>
+    <AppFeedList
+      v-if="getFeedList"
+      :data-item="getDataFeedList"
+      class="column-wrapper-main-left__feed-list"
+      @toggleLike="toggleLike($event)"
+    />
     <AppPlaceholderFeedList
       v-if="getIsLoadingFeedList"
       :data-item="placeholderCount"
@@ -28,13 +26,11 @@
       v-if="getIsVisiblePlaceholderContent"
       class="column-wrapper-main-left__no-content"
     />
-    <Transition name="elements">
-      <AppPaginatorList
-        v-if="getFeedCount"
-        class="main__paginator-list"
-        :data-item="getDataPaginator"
-      />
-    </Transition>
+    <AppPaginatorList
+      v-if="getFeedCount"
+      class="main__paginator-list"
+      :data-item="getDataPaginator"
+    />
     <AppPlaceholderPaginator
       v-if="getIsLoadingFeedCount"
       class="main__placeholder-paginator"
@@ -43,6 +39,14 @@
 </template>
 
 <script>
+import AppFilterBar from "~/components/AppFilterBar"
+import AppFeedList from "~/components/AppFeedList"
+import AppPlaceholderFeedList from "~/components/AppPlaceholderFeedList"
+import AppButtonCaption from "~/components/AppButtonCaption"
+import AppPlaceholderContent from "~/components/AppPlaceholderContent"
+import AppPaginatorList from "~/components/AppPaginatorList"
+import AppPlaceholderPaginator from "~/components/AppPlaceholderPaginator"
+
 import { mapState, mapGetters } from "vuex"
 import CreateFeedList from "~/mixins/dataFeedList"
 import { getterTypes as getterTypesAuth } from "~/store/auth"
@@ -50,6 +54,18 @@ import { getArrRange, isNotEmptyArr, isNotEmptyObj } from "~/helpers/utils"
 import { paginator } from "~/helpers/vars"
 
 export default {
+  name: "TheColumnWrapperMainLeft",
+
+  components: {
+    AppFilterBar,
+    AppFeedList,
+    AppPlaceholderFeedList,
+    AppButtonCaption,
+    AppPlaceholderContent,
+    AppPaginatorList,
+    AppPlaceholderPaginator,
+  },
+
   mixins: [CreateFeedList],
 
   transitions: {

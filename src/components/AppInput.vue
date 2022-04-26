@@ -25,6 +25,8 @@
 
 <script>
 export default {
+  name: "AppInput",
+
   props: {
     value: {
       type: [String, Number],

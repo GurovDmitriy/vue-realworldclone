@@ -24,6 +24,8 @@
 import { isNotEmptyArr, isOuterSrc } from "~/helpers/utils"
 
 export default {
+  name: "AppPicturePlugin",
+
   props: {
     dataItem: {
       type: Object,

@@ -73,6 +73,11 @@
 </template>
 
 <script>
+import AppForm from "~/components/AppForm"
+import AppInput from "~/components/AppInput"
+import AppFormErrors from "~/components/AppFormErrors"
+import AppButton from "~/components/AppButton"
+
 import { mapGetters, mapState } from "vuex"
 import FormValidation from "~/mixins/formValidation"
 import {
@@ -81,6 +86,15 @@ import {
 } from "~/store/auth"
 
 export default {
+  name: "TheFormSettings",
+
+  components: {
+    AppForm,
+    AppInput,
+    AppFormErrors,
+    AppButton,
+  },
+
   mixins: [FormValidation],
 
   data() {

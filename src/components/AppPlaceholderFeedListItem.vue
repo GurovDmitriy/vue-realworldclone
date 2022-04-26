@@ -8,6 +8,12 @@
   </li>
 </template>
 
+<script>
+export default {
+  name: "AppPlaceholderFeedListItem",
+}
+</script>
+
 <style lang="scss">
 .placeholder-feed-list-item {
   padding: $space-l 0;

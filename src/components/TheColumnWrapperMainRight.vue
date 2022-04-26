@@ -13,24 +13,29 @@
         class="column-wrapper-main-right__refresh"
         @clickBtn="fetchTags"
       />
-      <Transition name="elements">
-        <AppTagsList
-          v-if="getTagsPopular"
-          :data-item="getDataTagsPopular"
-          class="column-wrapper-main-right__tags-list"
-        />
-      </Transition>
+      <AppTagsList
+        v-if="getTagsPopular"
+        :data-item="getDataTagsPopular"
+        class="column-wrapper-main-right__tags-list"
+      />
     </div>
   </aside>
 </template>
 
 <script>
+import AppLoading from "~/components/AppLoading"
+import AppButtonCaption from "~/components/AppButtonCaption"
+import AppTagsList from "~/components/AppTagsList"
+
 import { mapState } from "vuex"
 
 export default {
-  transitions: {
-    name: "elements",
-    mode: "out-in",
+  name: "TheColumnWrapperMainRight",
+
+  components: {
+    AppLoading,
+    AppButtonCaption,
+    AppTagsList,
   },
 
   data() {

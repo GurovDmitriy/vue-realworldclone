@@ -5,6 +5,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "AppPlaceholderFeedUser",
+}
+</script>
+
 <style lang="scss">
 .placeholder-feed-user__caption {
   @include caption-h2;

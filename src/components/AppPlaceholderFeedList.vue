@@ -10,6 +10,12 @@
 
 <script>
 export default {
+  name: "AppPlaceholderFeedList",
+}
+</script>
+
+<script>
+export default {
   props: {
     dataItem: {
       type: Number,

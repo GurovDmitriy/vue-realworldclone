@@ -7,6 +7,12 @@
   </footer>
 </template>
 
+<script>
+export default {
+  name: "TheFooter",
+}
+</script>
+
 <style lang="scss">
 .footer {
   @include container;

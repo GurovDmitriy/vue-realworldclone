@@ -5,6 +5,18 @@
   </section>
 </template>
 
+<script>
+import TheFormRegister from "~/components/TheFormRegister"
+
+export default {
+  name: "TheColumnWrapperRegister",
+
+  components: {
+    TheFormRegister,
+  },
+}
+</script>
+
 <style lang="scss">
 .column-wrapper-register__caption {
   @include caption-h3;

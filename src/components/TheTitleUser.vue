@@ -13,10 +13,20 @@
 </template>
 
 <script>
+import AppPlaceholderUser from "~/components/AppPlaceholderUser"
+import AppImage from "~/components/AppImage"
+
 import { mapState } from "vuex"
 import { isNotEmptyObj } from "~/helpers/utils"
 
 export default {
+  name: "TheTitleUser",
+
+  components: {
+    AppPlaceholderUser,
+    AppImage,
+  },
+
   data() {
     return {
       config: {

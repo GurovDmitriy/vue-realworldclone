@@ -5,14 +5,12 @@
       :data-item="getDataFilterBar"
       class="column-wrapper-user__filter-bar"
     />
-    <Transition name="elements">
-      <AppFeedList
-        v-if="getFeedList"
-        :data-item="getDataFeedList"
-        class="column-wrapper-user__feed-list"
-        @toggleLike="toggleLike($event)"
-      />
-    </Transition>
+    <AppFeedList
+      v-if="getFeedList"
+      :data-item="getDataFeedList"
+      class="column-wrapper-user__feed-list"
+      @toggleLike="toggleLike($event)"
+    />
     <AppPlaceholderFeedList
       v-if="getIsLoadingFeedList"
       :data-item="placeholderCount"
@@ -32,15 +30,26 @@
 </template>
 
 <script>
+import AppFilterBar from "~/components/AppFilterBar"
+import AppFeedList from "~/components/AppFeedList"
+import AppPlaceholderFeedList from "~/components/AppPlaceholderFeedList"
+import AppButtonCaption from "~/components/AppButtonCaption"
+import AppPlaceholderContent from "~/components/AppPlaceholderContent"
+
 import { mapState, mapGetters } from "vuex"
 import { getterTypes as getterTypesAuth } from "~/store/auth"
 import CreateFeedList from "~/mixins/dataFeedList"
 import { isNotEmptyArr } from "~/helpers/utils"
 
 export default {
-  transitions: {
-    name: "elements",
-    mode: "out-in",
+  name: "TheColumnWrapperUser",
+
+  components: {
+    AppFilterBar,
+    AppFeedList,
+    AppPlaceholderFeedList,
+    AppButtonCaption,
+    AppPlaceholderContent,
   },
 
   mixins: [CreateFeedList],

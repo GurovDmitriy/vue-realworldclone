@@ -10,7 +10,15 @@
 </template>
 
 <script>
+import AppFilterBarItem from "~/components/AppFilterBarItem"
+
 export default {
+  name: "AppFilterBar",
+
+  components: {
+    AppFilterBarItem,
+  },
+
   props: {
     dataItem: {
       type: Array,

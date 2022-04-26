@@ -11,6 +11,8 @@
 
 <script>
 export default {
+  name: "AppFeedListItemPreview",
+
   props: {
     dataItem: {
       type: Object,

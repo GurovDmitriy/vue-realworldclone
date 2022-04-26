@@ -14,6 +14,8 @@
 
 <script>
 export default {
+  name: "AppInputTextarea",
+
   props: {
     value: {
       type: String,

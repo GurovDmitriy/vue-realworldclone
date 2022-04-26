@@ -5,6 +5,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "TheTitle",
+}
+</script>
+
 <style lang="scss">
 .title {
   @include container;

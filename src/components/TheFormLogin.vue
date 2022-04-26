@@ -46,11 +46,25 @@
 </template>
 
 <script>
+import AppForm from "~/components/AppForm"
+import AppInput from "~/components/AppInput"
+import AppFormErrors from "~/components/AppFormErrors"
+import AppButton from "~/components/AppButton"
+
 import { mapState } from "vuex"
 import FormValidation from "~/mixins/formValidation"
 import { actionTypes as actionTypesAuth } from "~/store/auth"
 
 export default {
+  name: "TheFormLogin",
+
+  components: {
+    AppForm,
+    AppInput,
+    AppFormErrors,
+    AppButton,
+  },
+
   mixins: [FormValidation],
 
   data() {

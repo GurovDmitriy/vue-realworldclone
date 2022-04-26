@@ -10,6 +10,8 @@
 import { isNotEmptyStr } from "~/helpers/utils"
 
 export default {
+  name: "AppTagsListItem",
+
   props: {
     dataItem: {
       type: Object,

@@ -12,6 +12,8 @@
 import { isOuterSrc } from "~/helpers/utils"
 
 export default {
+  name: "AppImage",
+
   props: {
     dataItem: {
       type: Object,

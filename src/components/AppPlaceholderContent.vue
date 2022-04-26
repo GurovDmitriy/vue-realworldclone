@@ -9,6 +9,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "AppPlaceholderContent",
+}
+</script>
+
 <style lang="scss">
 .placeholder-content {
   padding-top: $space-xl;

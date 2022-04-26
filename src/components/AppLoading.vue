@@ -4,6 +4,12 @@
   </p>
 </template>
 
+<script>
+export default {
+  name: "AppLoading",
+}
+</script>
+
 <style lang="scss">
 .loading {
   @include text-small;

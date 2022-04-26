@@ -5,6 +5,18 @@
   </header>
 </template>
 
+<script>
+import TheNavbar from "~/components/TheNavbar"
+
+export default {
+  name: "TheHeader",
+
+  components: {
+    TheNavbar,
+  },
+}
+</script>
+
 <style lang="scss">
 .header {
   @include container;

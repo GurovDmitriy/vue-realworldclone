@@ -6,6 +6,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "AppPlaceholderUser",
+}
+</script>
+
 <style lang="scss">
 .placeholder-user {
   display: flex;

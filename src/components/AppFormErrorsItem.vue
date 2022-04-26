@@ -15,6 +15,8 @@
 
 <script>
 export default {
+  name: "AppFormErrorsItem",
+
   props: {
     dataItem: {
       type: Object,

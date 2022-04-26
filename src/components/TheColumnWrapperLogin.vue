@@ -5,6 +5,18 @@
   </section>
 </template>
 
+<script>
+import TheFormLogin from "~/components/TheFormLogin"
+
+export default {
+  name: "TheColumnWrapperLogin",
+
+  components: {
+    TheFormLogin,
+  },
+}
+</script>
+
 <style lang="scss">
 .column-wrapper-login__caption {
   @include caption-h3;

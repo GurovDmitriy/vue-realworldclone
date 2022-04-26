@@ -11,6 +11,8 @@
 
 <script>
 export default {
+  name: "AppFilterBarItem",
+
   props: {
     dataItem: {
       type: Object,

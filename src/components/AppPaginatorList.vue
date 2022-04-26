@@ -10,7 +10,15 @@
 </template>
 
 <script>
+import AppPaginatorListItem from "~/components/AppPaginatorListItem"
+
 export default {
+  name: "AppPaginatorList",
+
+  components: {
+    AppPaginatorListItem,
+  },
+
   props: {
     dataItem: {
       type: Array,

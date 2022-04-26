@@ -10,7 +10,15 @@
 </template>
 
 <script>
+import AppNavListItem from "~/components/AppNavListItem"
+
 export default {
+  name: "AppNavList",
+
+  components: {
+    AppNavListItem,
+  },
+
   props: {
     dataItem: {
       type: Array,

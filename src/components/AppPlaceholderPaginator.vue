@@ -6,6 +6,12 @@
   </ul>
 </template>
 
+<script>
+export default {
+  name: "AppPlaceholderPaginator",
+}
+</script>
+
 <style lang="scss">
 .placeholder-paginator {
   display: flex;
