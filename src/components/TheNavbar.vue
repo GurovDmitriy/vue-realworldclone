@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import AppLogo from "~/components/AppLogo"
-import AppBurger from "~/components/AppBurger"
-import AppNavList from "~/components/AppNavList"
-import AppLoading from "~/components/AppLoading"
+import AppLogo from "@/components/AppLogo"
+import AppBurger from "@/components/AppBurger"
+import AppNavList from "@/components/AppNavList"
+import AppLoading from "@/components/AppLoading"
 
 import { mapGetters, mapState } from "vuex"
-import { getterTypes as getterTypesAuth } from "~/store/auth"
+import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
 
 export default {
   name: "TheNavbar",

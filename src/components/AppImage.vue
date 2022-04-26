@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { isOuterSrc } from "~/helpers/utils"
+import { isOuterSrc } from "@/helpers/utils"
 
 export default {
   name: "AppImage",

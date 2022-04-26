@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import AppHero from "~/components/AppHero"
-import TheTitleFeed from "~/components/TheTitleFeed"
-import TheColumnWrapperFeed from "~/components/TheColumnWrapperFeed"
+import AppHero from "@/components/AppHero"
+import TheTitleFeed from "@/components/TheTitleFeed"
+import TheColumnWrapperFeed from "@/components/TheColumnWrapperFeed"
 
-// import { actionTypes as actionTypesFeed } from "~/store/feed"
-// import { actionTypes as actionTypesUser } from "~/store/user"
-// import { getStrFromKebabCase } from "~/helpers/utils"
-// import { getIsValidParamsFeed } from "~/helpers/validateHook"
+// import { actionTypes as actionTypesFeed } from "@/store/modules/feed"
+// import { actionTypes as actionTypesUser } from "@/store/modules/user"
+// import { getStrFromKebabCase } from "@/helpers/utils"
+// import { getIsValidParamsFeed } from "@/helpers/validateHook"
 
 export default {
   name: "PageFeed",

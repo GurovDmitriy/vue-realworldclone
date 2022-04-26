@@ -1,4 +1,4 @@
-import { isNotEmptyObj, isNotEmptyArr } from "~/helpers/utils"
+import { isNotEmptyObj, isNotEmptyArr } from "@/helpers/utils"
 
 export function getIsValidParamsUser(value, data) {
   const onlyNum = getIsOnlyNum(value)

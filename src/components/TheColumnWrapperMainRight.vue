@@ -23,9 +23,9 @@
 </template>
 
 <script>
-import AppLoading from "~/components/AppLoading"
-import AppButtonCaption from "~/components/AppButtonCaption"
-import AppTagsList from "~/components/AppTagsList"
+import AppLoading from "@/components/AppLoading"
+import AppButtonCaption from "@/components/AppButtonCaption"
+import AppTagsList from "@/components/AppTagsList"
 
 import { mapState } from "vuex"
 

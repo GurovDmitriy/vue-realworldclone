@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import AppFormErrorsItem from "~/components/AppFormErrorsItem"
+import AppFormErrorsItem from "@/components/AppFormErrorsItem"
 
 export default {
   name: "AppFormErrors",

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheFormLogin from "~/components/TheFormLogin"
+import TheFormLogin from "@/components/TheFormLogin"
 
 export default {
   name: "TheColumnWrapperLogin",

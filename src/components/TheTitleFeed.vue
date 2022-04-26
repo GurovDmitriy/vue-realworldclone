@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import AppPlaceholderFeedUser from "~/components/AppPlaceholderFeedUser"
-import AppAuthor from "~/components/AppAuthor"
-import AppButtonIcon from "~/components/AppButtonIcon"
+import AppPlaceholderFeedUser from "@/components/AppPlaceholderFeedUser"
+import AppAuthor from "@/components/AppAuthor"
+import AppButtonIcon from "@/components/AppButtonIcon"
 
 import { mapState } from "vuex"
-import { actionTypes as actionTypesFeed } from "~/store/feed"
-import { isNotEmptyObj } from "~/helpers/utils"
+import { actionTypes as actionTypesFeed } from "@/store/modules/feed"
+import { isNotEmptyObj } from "@/helpers/utils"
 
 export default {
   name: "TheFeed",

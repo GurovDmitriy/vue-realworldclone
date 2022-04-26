@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { isNotEmptyArr, isOuterSrc } from "~/helpers/utils"
+import { isNotEmptyArr, isOuterSrc } from "@/helpers/utils"
 
 export default {
   name: "AppPicturePlugin",

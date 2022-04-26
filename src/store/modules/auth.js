@@ -1,5 +1,6 @@
-import { setItemCO, removeItemCO } from "~/helpers/persistanceCookie"
-import { setItemLS } from "~/helpers/persistanceStorage"
+import auth from "@/api/auth"
+// import { setItemCO, removeItemCO } from "@/helpers/persistanceCookie"
+import { setItemLS } from "@/helpers/persistanceStorage"
 
 export const getterTypes = {
   getCurrentUser: "[auth] getCurrentUser",
@@ -129,13 +130,13 @@ const actions = {
     commit(mutationTypes.setCurrentUserStart)
 
     try {
-      const res = await this.$api.auth.register(payload)
+      const res = await auth.register(payload)
       const accessToken = res.accessToken
       const userId = res.user.id
       const data = res.user
 
-      setItemCO(this.$cookies, "accessToken", accessToken)
-      setItemCO(this.$cookies, "userId", userId)
+      // setItemCO(this.$cookies, "accessToken", accessToken)
+      // setItemCO(this.$cookies, "userId", userId)
       setItemLS("credential", { accessToken, userId })
 
       commit(mutationTypes.setCurrentUserSuccess, data)
@@ -150,13 +151,13 @@ const actions = {
     commit(mutationTypes.setCurrentUserStart)
 
     try {
-      const res = await this.$api.auth.login(payload)
+      const res = await auth.login(payload)
       const accessToken = res.accessToken
       const userId = res.user.id
       const data = res.user
 
-      setItemCO(this.$cookies, "accessToken", accessToken)
-      setItemCO(this.$cookies, "userId", userId)
+      // setItemCO(this.$cookies, "accessToken", accessToken)
+      // setItemCO(this.$cookies, "userId", userId)
       setItemLS("credential", { accessToken, userId })
 
       commit(mutationTypes.setCurrentUserSuccess, data)
@@ -171,7 +172,7 @@ const actions = {
     commit(mutationTypes.setCurrentUserStart)
 
     try {
-      const data = await this.$api.auth.getUser(payload)
+      const data = await auth.getUser(payload)
 
       commit(mutationTypes.setCurrentUserSuccess, data)
       return data
@@ -185,7 +186,7 @@ const actions = {
     commit(mutationTypes.updateCurrentUserStart)
 
     try {
-      const data = await this.$api.auth.updateUser(payload)
+      const data = await auth.updateUser(payload)
       delete data.password
 
       commit(mutationTypes.updateCurrentUserSuccess, data)
@@ -200,8 +201,8 @@ const actions = {
     commit(mutationTypes.logoutStart)
 
     try {
-      removeItemCO(this.$cookies, "accessToken")
-      removeItemCO(this.$cookies, "userId")
+      // removeItemCO(this.$cookies, "accessToken")
+      // removeItemCO(this.$cookies, "userId")
       setItemLS("credential", "")
 
       commit(mutationTypes.logoutSuccess)
@@ -211,15 +212,15 @@ const actions = {
     }
   },
 
-  async nuxtServerInit({ dispatch }) {
-    const userId = this.$cookies.get("userId")
+  // async nuxtServerInit({ dispatch }) {
+  //   const userId = this.$cookies.get("userId")
 
-    if (userId) {
-      await dispatch(actionTypes.fetchCurrentUser, userId)
-    } else {
-      await dispatch(actionTypes.logout)
-    }
-  },
+  //   if (userId) {
+  //     await dispatch(actionTypes.fetchCurrentUser, userId)
+  //   } else {
+  //     await dispatch(actionTypes.logout)
+  //   }
+  // },
 }
 
 export default {

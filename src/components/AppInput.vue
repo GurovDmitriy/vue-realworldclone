@@ -14,10 +14,11 @@
       v-on="getListeners"
     />
     <div v-if="dataItem.iconName" class="input__box-icon">
-      <SvgIcon
+      <Svg
         class="input__icon"
-        :name="dataItem.iconName"
-        :desc="dataItem.iconDesc"
+        :symbol="dataItem.iconName"
+        size="0 0 16 16"
+        role="presentation"
       />
     </div>
   </div>

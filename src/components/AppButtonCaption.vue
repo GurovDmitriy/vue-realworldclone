@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import AppButtonIcon from "~/components/AppButtonIcon"
+import AppButtonIcon from "@/components/AppButtonIcon"
 
 export default {
   name: "AppButtonCaption",

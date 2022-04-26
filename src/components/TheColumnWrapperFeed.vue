@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import AppFeed from "~/components/AppFeed"
-import AppLoading from "~/components/AppLoading"
+import AppFeed from "@/components/AppFeed"
+import AppLoading from "@/components/AppLoading"
 
 import { mapState } from "vuex"
 

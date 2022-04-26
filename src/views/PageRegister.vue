@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheColumnWrapperRegister from "~/components/TheColumnWrapperRegister"
+import TheColumnWrapperRegister from "@/components/TheColumnWrapperRegister"
 
 export default {
   name: "PageRegister",

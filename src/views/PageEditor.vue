@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheFormEditor from "~/components/TheFormEditor"
+import TheFormEditor from "@/components/TheFormEditor"
 
 export default {
   name: "PageEditor",

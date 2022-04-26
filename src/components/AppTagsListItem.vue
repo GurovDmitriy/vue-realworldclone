@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { isNotEmptyStr } from "~/helpers/utils"
+import { isNotEmptyStr } from "@/helpers/utils"
 
 export default {
   name: "AppTagsListItem",

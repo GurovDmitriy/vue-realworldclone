@@ -11,7 +11,7 @@ $map-fonts: (
     font-style: normal;
     src: local("Open Sans #{$value}"), local("Open-Sans-#{$value}"),
       local("OpenSans-#{$value}"), local("OpenSans #{$value}"),
-      url("~assets/fonts/OpenSans-#{$value}.woff2");
+      url("@/assets/fonts/OpenSans-#{$value}.woff2");
     font-display: optional;
   }
 }

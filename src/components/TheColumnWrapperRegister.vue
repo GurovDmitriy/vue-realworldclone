@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheFormRegister from "~/components/TheFormRegister"
+import TheFormRegister from "@/components/TheFormRegister"
 
 export default {
   name: "TheColumnWrapperRegister",

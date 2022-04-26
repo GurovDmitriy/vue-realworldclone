@@ -6,10 +6,11 @@
     :disabled="disabled"
     @click="emitClickBtn"
   >
-    <SvgIcon
+    <Svg
       class="button-icon__icon"
-      :name="dataItem.iconName"
-      :desc="dataItem.iconDesc"
+      :symbol="dataItem.iconName"
+      size="0 0 16 16"
+      role="presentation"
     />
     <span class="button-icon__text"><slot name="default">Click</slot></span>
   </button>

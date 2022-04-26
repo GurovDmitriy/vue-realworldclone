@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import AppHero from "~/components/AppHero"
-import TheTitle from "~/components/TheTitle"
+import AppHero from "@/components/AppHero"
+import TheTitle from "@/components/TheTitle"
 
 export default {
   name: "PageTest",

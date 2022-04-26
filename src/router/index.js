@@ -1,8 +1,16 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
+import { getterTypes as getterTypesAuth } from "@/store/auth"
 import PageHome from "../views/PageHome.vue"
 
 Vue.use(VueRouter)
+
+const auth = (to, from, next) => {
+  const isAuthorized = this.$store.getters[getterTypesAuth.getIsLoggedIn]
+
+  if (!isAuthorized) next({ name: "PageLogin" })
+  else next()
+}
 
 const routes = [
   {
@@ -16,6 +24,8 @@ const routes = [
     name: "PageEditor",
     component: () =>
       import(/* webpackChunkName: "PageEditor" */ "../views/PageEditor.vue"),
+
+    beforeEnter: auth,
   },
 
   {

@@ -30,16 +30,16 @@
 </template>
 
 <script>
-import AppFilterBar from "~/components/AppFilterBar"
-import AppFeedList from "~/components/AppFeedList"
-import AppPlaceholderFeedList from "~/components/AppPlaceholderFeedList"
-import AppButtonCaption from "~/components/AppButtonCaption"
-import AppPlaceholderContent from "~/components/AppPlaceholderContent"
+import AppFilterBar from "@/components/AppFilterBar"
+import AppFeedList from "@/components/AppFeedList"
+import AppPlaceholderFeedList from "@/components/AppPlaceholderFeedList"
+import AppButtonCaption from "@/components/AppButtonCaption"
+import AppPlaceholderContent from "@/components/AppPlaceholderContent"
 
 import { mapState, mapGetters } from "vuex"
-import { getterTypes as getterTypesAuth } from "~/store/auth"
-import CreateFeedList from "~/mixins/dataFeedList"
-import { isNotEmptyArr } from "~/helpers/utils"
+import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
+import CreateFeedList from "@/mixins/dataFeedList"
+import { isNotEmptyArr } from "@/helpers/utils"
 
 export default {
   name: "TheColumnWrapperUser",

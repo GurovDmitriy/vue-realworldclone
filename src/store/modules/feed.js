@@ -1,3 +1,5 @@
+import feed from "@/api/feed"
+
 export const mutationTypes = {
   setFeedStart: "[feed] setFeedStart",
   setFeedSuccess: "[feed] setFeedSuccess",
@@ -66,7 +68,7 @@ const actions = {
     commit(mutationTypes.setFeedStart)
 
     try {
-      const data = await this.$api.feed.getFeed(payload)
+      const data = await feed.getFeed(payload)
 
       commit(mutationTypes.setFeedSuccess, data[0])
       return data
@@ -80,7 +82,7 @@ const actions = {
     commit(mutationTypes.setFeedStart)
 
     try {
-      const data = await this.$api.feed.createFeed(payload)
+      const data = await feed.createFeed(payload)
 
       commit(mutationTypes.setFeedSuccess, data)
       return data
@@ -94,7 +96,7 @@ const actions = {
     commit(mutationTypes.setFeedStart)
 
     try {
-      const data = await this.$api.feed.updateFeed(payload)
+      const data = await feed.updateFeed(payload)
 
       commit(mutationTypes.setFeedSuccess, data)
       return data
@@ -108,7 +110,7 @@ const actions = {
     commit(mutationTypes.deleteFeedStart)
 
     try {
-      const data = await this.$api.feed.deleteFeed(payload)
+      const data = await feed.deleteFeed(payload)
 
       commit(mutationTypes.deleteFeedSuccess, data)
     } catch (err) {

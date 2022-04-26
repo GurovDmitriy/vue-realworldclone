@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import AppInput from "~/components/AppInput"
+import AppInput from "@/components/AppInput"
 
 export default {
   name: "TheFormRegisterPart2",

@@ -1,5 +1,5 @@
-import { forms } from "~/helpers/vars"
-import validators from "~/helpers/validators"
+import { forms } from "@/helpers/vars"
+import validators from "@/helpers/validators"
 
 function getArrMessagesValidation(...checks) {
   const data = []

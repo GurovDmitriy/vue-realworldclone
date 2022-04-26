@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheNavbar from "~/components/TheNavbar"
+import TheNavbar from "@/components/TheNavbar"
 
 export default {
   name: "TheHeader",

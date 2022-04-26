@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheColumnWrapperLogin from "~/components/TheColumnWrapperLogin"
+import TheColumnWrapperLogin from "@/components/TheColumnWrapperLogin"
 
 export default {
   name: "PageLogin",

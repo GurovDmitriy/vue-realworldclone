@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import AppTagsListItem from "~/components/AppTagsListItem"
+import AppTagsListItem from "@/components/AppTagsListItem"
 
 export default {
   name: "AppTagsList",

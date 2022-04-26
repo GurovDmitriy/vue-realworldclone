@@ -1,3 +1,5 @@
+import feedCount from "@/api/feedCount"
+
 export const mutationTypes = {
   setFeedCountStart: "[feedCount] setFeedCountStart",
   setFeedCountSuccess: "[feedCount] setFeedCountSuccess",
@@ -41,16 +43,16 @@ const actions = {
 
       switch (payload) {
         case "tag":
-          data = await this.$api.feedCount.getFeedCountByTag()
+          data = await feedCount.getFeedCountByTag()
           break
         case "user":
-          data = await this.$api.feedCount.getFeedCountByUser()
+          data = await feedCount.getFeedCountByUser()
           break
         case "like":
-          data = await this.$api.feedCount.getFeedCountByLike()
+          data = await feedCount.getFeedCountByLike()
           break
         default:
-          data = await this.$api.feedCount.getFeedCountTotal()
+          data = await feedCount.getFeedCountTotal()
       }
 
       commit(mutationTypes.setFeedCountSuccess, data)

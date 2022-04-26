@@ -1,3 +1,5 @@
+import tag from "@/api/tag"
+
 export const mutationTypes = {
   setTagsPopularStart: "[tag] setTagsPopularStart",
   setTagsPopularSuccess: "[tag] setTagsPopularSuccess",
@@ -37,7 +39,7 @@ const actions = {
     commit(mutationTypes.setTagsPopularStart)
 
     try {
-      const data = await this.$api.tag.getTagsPopular()
+      const data = await tag.getTagsPopular()
 
       commit(mutationTypes.setTagsPopularSuccess, data)
       return data

@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import TheColumnWrapperMainLeft from "~/components/TheColumnWrapperMainLeft"
-import TheColumnWrapperMainRight from "~/components/TheColumnWrapperMainRight"
+import TheColumnWrapperMainLeft from "@/components/TheColumnWrapperMainLeft"
+import TheColumnWrapperMainRight from "@/components/TheColumnWrapperMainRight"
 
 export default {
   name: "TheColumnWrapperMain",

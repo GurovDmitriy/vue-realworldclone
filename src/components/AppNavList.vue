@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import AppNavListItem from "~/components/AppNavListItem"
+import AppNavListItem from "@/components/AppNavListItem"
 
 export default {
   name: "AppNavList",

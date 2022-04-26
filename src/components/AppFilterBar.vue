@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import AppFilterBarItem from "~/components/AppFilterBarItem"
+import AppFilterBarItem from "@/components/AppFilterBarItem"
 
 export default {
   name: "AppFilterBar",

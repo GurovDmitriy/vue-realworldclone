@@ -39,19 +39,19 @@
 </template>
 
 <script>
-import AppFilterBar from "~/components/AppFilterBar"
-import AppFeedList from "~/components/AppFeedList"
-import AppPlaceholderFeedList from "~/components/AppPlaceholderFeedList"
-import AppButtonCaption from "~/components/AppButtonCaption"
-import AppPlaceholderContent from "~/components/AppPlaceholderContent"
-import AppPaginatorList from "~/components/AppPaginatorList"
-import AppPlaceholderPaginator from "~/components/AppPlaceholderPaginator"
+import AppFilterBar from "@/components/AppFilterBar"
+import AppFeedList from "@/components/AppFeedList"
+import AppPlaceholderFeedList from "@/components/AppPlaceholderFeedList"
+import AppButtonCaption from "@/components/AppButtonCaption"
+import AppPlaceholderContent from "@/components/AppPlaceholderContent"
+import AppPaginatorList from "@/components/AppPaginatorList"
+import AppPlaceholderPaginator from "@/components/AppPlaceholderPaginator"
 
 import { mapState, mapGetters } from "vuex"
-import CreateFeedList from "~/mixins/dataFeedList"
-import { getterTypes as getterTypesAuth } from "~/store/auth"
-import { getArrRange, isNotEmptyArr, isNotEmptyObj } from "~/helpers/utils"
-import { paginator } from "~/helpers/vars"
+import CreateFeedList from "@/mixins/dataFeedList"
+import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
+import { getArrRange, isNotEmptyArr, isNotEmptyObj } from "@/helpers/utils"
+import { paginator } from "@/helpers/vars"
 
 export default {
   name: "TheColumnWrapperMainLeft",

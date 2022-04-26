@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import AppFeedListItemHeader from "~/components/AppFeedListItemHeader"
-import AppFeedListItemPreview from "~/components/AppFeedListItemPreview"
-import AppFeedListItemFooter from "~/components/AppFeedListItemFooter"
+import AppFeedListItemHeader from "@/components/AppFeedListItemHeader"
+import AppFeedListItemPreview from "@/components/AppFeedListItemPreview"
+import AppFeedListItemFooter from "@/components/AppFeedListItemFooter"
 
 export default {
   name: "AppFeedListItem",

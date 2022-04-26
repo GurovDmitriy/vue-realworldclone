@@ -9,15 +9,15 @@
 </template>
 
 <script>
-import AppHero from "~/components/AppHero"
-import TheTitle from "~/components/TheTitle"
-import TheColumnWrapperMain from "~/components/TheColumnWrapperMain"
+import AppHero from "@/components/AppHero"
+import TheTitle from "@/components/TheTitle"
+import TheColumnWrapperMain from "@/components/TheColumnWrapperMain"
 
-// import { actionTypes as actionTypesTag } from "~/store/tag"
-// import { actionTypes as actionTypesFeedList } from "~/store/feedList"
-// import { actionTypes as actionTypesFeedCount } from "~/store/feedCount"
-// import { paginator } from "~/helpers/vars"
-// import { getIsValidParamsTag } from "~/helpers/validateHook"
+import { actionTypes as actionTypesTag } from "@/store/modules/tag"
+import { actionTypes as actionTypesFeedList } from "@/store/modules/feedList"
+import { actionTypes as actionTypesFeedCount } from "@/store/modules/feedCount"
+import { paginator } from "@/helpers/vars"
+// import { getIsValidParamsTag } from "@/helpers/validateHook"
 
 export default {
   name: "PageTag",
@@ -40,28 +40,35 @@ export default {
   //   return getIsValidParamsTag(params.tag, data)
   // },
 
-  // async asyncData({ params, query, store, error }) {
-  //   try {
-  //     const tag = params.tag
-  //     const page = query.page || 1
-  //     const itemPerPage = paginator.feedList.main
-  //     const feedListPayload = `tags_like=${tag}&_page=${page}&_limit=${itemPerPage}`
+  mounted() {
+    this.fetchData()
+  },
 
-  //     await Promise.allSettled([
-  //       store.dispatch(actionTypesTag.fetchTagsPopular),
-  //       store.dispatch(actionTypesFeedList.fetchFeedList, feedListPayload),
-  //       store.dispatch(actionTypesFeedCount.fetchFeedCount, "tag"),
-  //     ])
+  methods: {
+    async fetchData() {
+      try {
+        const tag = this.$route.params.tag
+        const page = this.$route.query.page || 1
+        const itemPerPage = paginator.feedList.main
+        const feedListPayload = `tags_like=${tag}&_page=${page}&_limit=${itemPerPage}`
 
-  //     return {
-  //       tag,
-  //     }
-  //   } catch (err) {
-  //     error(err)
-  //   }
-  // },
+        await Promise.allSettled([
+          this.$store.dispatch(actionTypesTag.fetchTagsPopular),
+          this.$store.dispatch(
+            actionTypesFeedList.fetchFeedList,
+            feedListPayload
+          ),
+          this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "tag"),
+        ])
 
-  // watchQuery: ["page"],
+        // return {
+        //   tag,
+        // }
+      } catch (err) {
+        console.log(err)
+      }
+    },
+  },
 }
 </script>
 

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import AppPaginatorListItem from "~/components/AppPaginatorListItem"
+import AppPaginatorListItem from "@/components/AppPaginatorListItem"
 
 export default {
   name: "AppPaginatorList",

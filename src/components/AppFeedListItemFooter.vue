@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import AppTagsList from "~/components/AppTagsList"
+import AppTagsList from "@/components/AppTagsList"
 
 export default {
   name: "AppFeedListItemFooter",

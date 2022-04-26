@@ -18,19 +18,19 @@
 </template>
 
 <script>
-import AppHero from "~/components/AppHero"
-import TheTitleUser from "~/components/TheTitleUser"
-import TheColumnWrapperUser from "~/components/TheColumnWrapperUser"
-import AppPaginatorList from "~/components/AppPaginatorList"
-import AppPlaceholderPaginator from "~/components/AppPlaceholderPaginator"
+import AppHero from "@/components/AppHero"
+import TheTitleUser from "@/components/TheTitleUser"
+import TheColumnWrapperUser from "@/components/TheColumnWrapperUser"
+import AppPaginatorList from "@/components/AppPaginatorList"
+import AppPlaceholderPaginator from "@/components/AppPlaceholderPaginator"
 
-// import { mapState } from "vuex"
-// import { actionTypes as actionTypesUser } from "~/store/user"
-// import { actionTypes as actionTypesFeedList } from "~/store/feedList"
-// import { actionTypes as actionTypesFeedCount } from "~/store/feedCount"
-// import { paginator } from "~/helpers/vars"
-// import { getIsValidParamsUser } from "~/helpers/validateHook"
-// import DataPaginator from "~/mixins/dataPaginator"
+import { mapState } from "vuex"
+import { actionTypes as actionTypesUser } from "@/store/modules/user"
+import { actionTypes as actionTypesFeedList } from "@/store/modules/feedList"
+import { actionTypes as actionTypesFeedCount } from "@/store/modules/feedCount"
+import { paginator } from "@/helpers/vars"
+// import { getIsValidParamsUser } from "@/helpers/validateHooks"
+import DataPaginator from "@/mixins/dataPaginator"
 
 export default {
   name: "PageUserFavorites",
@@ -43,8 +43,7 @@ export default {
     AppPlaceholderPaginator,
   },
 
-  // mixins: [DataPaginator],
-  // layout: "user",
+  mixins: [DataPaginator],
 
   // async validate({ params, store }) {
   //   const userPayload = `userName=${params.user}`
@@ -53,38 +52,45 @@ export default {
   //   return getIsValidParamsUser(params.user, user)
   // },
 
-  // async asyncData({ params, query, store, error }) {
-  //   try {
-  //     const userName = params.user
-  //     const pageNum = query.page || 1
-  //     const itemPerPage = paginator.feedList.main
+  computed: {
+    ...mapState({
+      getFeedCount: ({ feedCount }) => feedCount.feedCount,
+      getIsLoadingFeedCount: ({ feedCount }) => feedCount.isLoading,
+    }),
+  },
 
-  //     const userPayload = `userName=${userName}`
-  //     await store.dispatch(actionTypesUser.fetchUser, userPayload)
+  mounted() {
+    this.fetchData()
+  },
 
-  //     const feedListPayload = `like_like=${store.state.user.user.id}&_page=${pageNum}&_limit=${itemPerPage}`
+  methods: {
+    async fetchData() {
+      try {
+        const userName = this.$route.params.user
+        const pageNum = this.$route.query.page || 1
+        const itemPerPage = paginator.feedList.main
 
-  //     await Promise.allSettled([
-  //       store.dispatch(actionTypesFeedList.fetchFeedList, feedListPayload),
-  //       store.dispatch(actionTypesFeedCount.fetchFeedCount, "like"),
-  //     ])
+        const userPayload = `userName=${userName}`
+        await this.$store.dispatch(actionTypesUser.fetchUser, userPayload)
 
-  //     return {
-  //       userName,
-  //     }
-  //   } catch (err) {
-  //     error(err)
-  //   }
-  // },
+        const feedListPayload = `like_like=${this.$store.state.user.user.id}&_page=${pageNum}&_limit=${itemPerPage}`
 
-  // computed: {
-  //   ...mapState({
-  //     getFeedCount: ({ feedCount }) => feedCount.feedCount,
-  //     getIsLoadingFeedCount: ({ feedCount }) => feedCount.isLoading,
-  //   }),
-  // },
+        await Promise.allSettled([
+          this.$store.dispatch(
+            actionTypesFeedList.fetchFeedList,
+            feedListPayload
+          ),
+          this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "like"),
+        ])
 
-  // watchQuery: ["page"],
+        // return {
+        //   userName,
+        // }
+      } catch (err) {
+        console.log(err)
+      }
+    },
+  },
 }
 </script>
 

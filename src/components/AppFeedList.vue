@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import AppFeedListItem from "~/components/AppFeedListItem"
+import AppFeedListItem from "@/components/AppFeedListItem"
 
 export default {
   name: "AppFeedListItem",

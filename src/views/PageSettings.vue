@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheFormSettings from "~/components/TheFormSettings"
+import TheFormSettings from "@/components/TheFormSettings"
 
 export default {
   name: "PageSettings",

@@ -1,3 +1,6 @@
+import feedList from "@/api/feedList"
+import feed from "@/api/feed"
+
 export const mutationTypes = {
   setFeedListStart: "[feedList] setFeedListStart",
   setFeedListSuccess: "[feedList] setFeedListSuccess",
@@ -61,7 +64,7 @@ const actions = {
     commit(mutationTypes.setFeedListStart)
 
     try {
-      const data = await this.$api.feedList.getFeedList(payload)
+      const data = await feedList.getFeedList(payload)
 
       commit(mutationTypes.setFeedListSuccess, data)
       return data
@@ -75,7 +78,7 @@ const actions = {
     commit(mutationTypes.toggleLikeFeedListStart)
 
     try {
-      const data = await this.$api.feed.toggleLikeFeed(payload)
+      const data = await feed.toggleLikeFeed(payload)
 
       commit(mutationTypes.toggleLikeFeedListSuccess, {
         ...payload,

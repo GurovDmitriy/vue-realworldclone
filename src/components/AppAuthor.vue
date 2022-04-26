@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import AppImage from "~/components/AppImage"
+import AppImage from "@/components/AppImage"
 
 export default {
   name: "AppAuthor",

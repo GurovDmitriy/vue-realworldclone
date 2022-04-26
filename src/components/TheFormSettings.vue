@@ -73,17 +73,17 @@
 </template>
 
 <script>
-import AppForm from "~/components/AppForm"
-import AppInput from "~/components/AppInput"
-import AppFormErrors from "~/components/AppFormErrors"
-import AppButton from "~/components/AppButton"
+import AppForm from "@/components/AppForm"
+import AppInput from "@/components/AppInput"
+import AppFormErrors from "@/components/AppFormErrors"
+import AppButton from "@/components/AppButton"
 
 import { mapGetters, mapState } from "vuex"
-import FormValidation from "~/mixins/formValidation"
+import FormValidation from "@/mixins/formValidation"
 import {
   getterTypes as getterTypesAuth,
   actionTypes as actionTypesAuth,
-} from "~/store/auth"
+} from "@/store/modules/auth"
 
 export default {
   name: "TheFormSettings",

@@ -51,13 +51,13 @@
 </template>
 
 <script>
-import AppForm from "~/components/AppForm"
-import AppFormErrors from "~/components/AppFormErrors"
-import AppButton from "~/components/AppButton"
+import AppForm from "@/components/AppForm"
+import AppFormErrors from "@/components/AppFormErrors"
+import AppButton from "@/components/AppButton"
 
 import { mapState } from "vuex"
-import FormValidation from "~/mixins/formValidation"
-import { actionTypes as actionTypesAuth } from "~/store/auth"
+import FormValidation from "@/mixins/formValidation"
+import { actionTypes as actionTypesAuth } from "@/store/modules/auth"
 
 export default {
   name: "TheFormRegister",

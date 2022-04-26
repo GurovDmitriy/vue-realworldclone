@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import AppHero from "~/components/AppHero"
-import TheTitle from "~/components/TheTitle"
-import TheColumnWrapperMain from "~/components/TheColumnWrapperMain"
+import AppHero from "@/components/AppHero"
+import TheTitle from "@/components/TheTitle"
+import TheColumnWrapperMain from "@/components/TheColumnWrapperMain"
 
-// import { actionTypes as actionTypesTag } from "~/store/tag"
-// import { actionTypes as actionTypesFeedList } from "~/store/feedList"
-// import { actionTypes as actionTypesFeedCount } from "~/store/feedCount"
-// import { paginator } from "~/helpers/vars"
+import { actionTypes as actionTypesTag } from "@/store/modules/tag"
+import { actionTypes as actionTypesFeedList } from "@/store/modules/feedList"
+import { actionTypes as actionTypesFeedCount } from "@/store/modules/feedCount"
+import { paginator } from "@/helpers/vars"
 
 export default {
   name: "PageHome",
@@ -27,23 +27,30 @@ export default {
     TheColumnWrapperMain,
   },
 
-  // async asyncData({ query, store, error }) {
-  //   try {
-  //     const pageNum = query.page || 1
-  //     const itemPerPage = paginator.feedList.main
-  //     const feedListPayload = `_page=${pageNum}&_limit=${itemPerPage}`
+  mounted() {
+    this.fetchData()
+  },
 
-  //     await Promise.allSettled([
-  //       store.dispatch(actionTypesTag.fetchTagsPopular),
-  //       store.dispatch(actionTypesFeedList.fetchFeedList, feedListPayload),
-  //       store.dispatch(actionTypesFeedCount.fetchFeedCount, "total"),
-  //     ])
-  //   } catch (err) {
-  //     error(err)
-  //   }
-  // },
+  methods: {
+    async fetchData() {
+      try {
+        const pageNum = this.$route.query.page || 1
+        const itemPerPage = paginator.feedList.main
+        const feedListPayload = `_page=${pageNum}&_limit=${itemPerPage}`
 
-  // watchQuery: ["page"],
+        await Promise.allSettled([
+          this.$store.dispatch(actionTypesTag.fetchTagsPopular),
+          this.$store.dispatch(
+            actionTypesFeedList.fetchFeedList,
+            feedListPayload
+          ),
+          this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "total"),
+        ])
+      } catch (err) {
+        console.log(err)
+      }
+    },
+  },
 }
 </script>
 

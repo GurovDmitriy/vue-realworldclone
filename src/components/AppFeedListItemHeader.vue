@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import AppAuthor from "~/components/AppAuthor"
-import AppButtonIcon from "~/components/AppButtonIcon"
+import AppAuthor from "@/components/AppAuthor"
+import AppButtonIcon from "@/components/AppButtonIcon"
 
 export default {
   name: "AppFeedListItemHeader",

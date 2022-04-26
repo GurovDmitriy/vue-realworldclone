@@ -1,3 +1,5 @@
+import user from "@/api/user"
+
 export const mutationTypes = {
   setUserStart: "[user] setUserStart",
   setUserSuccess: "[user] setUserSuccess",
@@ -37,7 +39,7 @@ const actions = {
     commit(mutationTypes.setUserStart)
 
     try {
-      const data = await this.$api.user.getUser(payload)
+      const data = await user.getUser(payload)
 
       commit(mutationTypes.setUserSuccess, data[0])
       return data[0]
