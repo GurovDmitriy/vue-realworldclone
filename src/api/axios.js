@@ -10,6 +10,8 @@ axios.interceptors.request.use((config) => {
   return config
 })
 
+export default axios
+
 // axios.onError((error) => {
 //   if (error.response.status === 401) {
 //     store.dispatch(actionTypesAuth.logout)

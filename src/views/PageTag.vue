@@ -28,6 +28,12 @@ export default {
     TheColumnWrapperMain,
   },
 
+  // watch: {
+  //   "this.$params.query"(value) {
+  //     console.log(value)
+  //   },
+  // },
+
   // async validate({ params }) {
   //   const res = await fetch(
   //     `http://localhost:3005/feeds?tags_like=${params.tag}`,

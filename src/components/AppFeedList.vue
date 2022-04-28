@@ -14,7 +14,7 @@
 import AppFeedListItem from "@/components/AppFeedListItem"
 
 export default {
-  name: "AppFeedListItem",
+  name: "AppFeedList",
 
   components: {
     AppFeedListItem,

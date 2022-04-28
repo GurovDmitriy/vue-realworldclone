@@ -39,7 +39,8 @@ const actions = {
     commit(mutationTypes.setUserStart)
 
     try {
-      const data = await user.getUser(payload)
+      const res = await user.getUser(payload)
+      const data = res.data
 
       commit(mutationTypes.setUserSuccess, data[0])
       return data[0]

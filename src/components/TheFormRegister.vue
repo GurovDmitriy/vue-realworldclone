@@ -54,6 +54,8 @@
 import AppForm from "@/components/AppForm"
 import AppFormErrors from "@/components/AppFormErrors"
 import AppButton from "@/components/AppButton"
+import TheFormRegisterPart1 from "@/components/TheFormRegisterPart1"
+import TheFormRegisterPart2 from "@/components/TheFormRegisterPart2"
 
 import { mapState } from "vuex"
 import FormValidation from "@/mixins/formValidation"
@@ -66,6 +68,8 @@ export default {
     AppForm,
     AppFormErrors,
     AppButton,
+    TheFormRegisterPart1,
+    TheFormRegisterPart2,
   },
 
   mixins: [FormValidation],

@@ -64,7 +64,8 @@ const actions = {
     commit(mutationTypes.setFeedListStart)
 
     try {
-      const data = await feedList.getFeedList(payload)
+      const res = await feedList.getFeedList(payload)
+      const data = res.data
 
       commit(mutationTypes.setFeedListSuccess, data)
       return data

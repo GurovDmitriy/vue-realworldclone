@@ -39,20 +39,25 @@ const actions = {
     commit(mutationTypes.setFeedCountStart)
 
     try {
+      let res = null
       let data = null
 
       switch (payload) {
         case "tag":
-          data = await feedCount.getFeedCountByTag()
+          res = await feedCount.getFeedCountByTag()
+          data = res.data
           break
         case "user":
-          data = await feedCount.getFeedCountByUser()
+          res = await feedCount.getFeedCountByUser()
+          data = res.data
           break
         case "like":
-          data = await feedCount.getFeedCountByLike()
+          res = await feedCount.getFeedCountByLike()
+          data = res.data
           break
         default:
-          data = await feedCount.getFeedCountTotal()
+          res = await feedCount.getFeedCountTotal()
+          data = res.data
       }
 
       commit(mutationTypes.setFeedCountSuccess, data)

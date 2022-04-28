@@ -27,6 +27,12 @@ export default {
     TheColumnWrapperMain,
   },
 
+  watch: {
+    "$route.query"() {
+      this.fetchData()
+    },
+  },
+
   mounted() {
     this.fetchData()
   },

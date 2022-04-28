@@ -13,11 +13,12 @@
         class="column-wrapper-main-right__refresh"
         @clickBtn="fetchTags"
       />
-      <AppTagsList
-        v-if="getTagsPopular"
-        :data-item="getDataTagsPopular"
-        class="column-wrapper-main-right__tags-list"
-      />
+      <template v-if="getTagsPopular">
+        <AppTagsList
+          :data-item="getDataTagsPopular"
+          class="column-wrapper-main-right__tags-list"
+        />
+      </template>
     </div>
   </aside>
 </template>

@@ -38,10 +38,10 @@ export default {
           return pathImage
 
         case false:
-          return require(`~/assets/images/${pathImage}`)
+          return require(`@/assets/images/${pathImage}`)
 
         default:
-          return require(`~/assets/images/${placeholder}`)
+          return require(`@/assets/images/${placeholder}`)
       }
     },
   },

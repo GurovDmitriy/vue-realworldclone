@@ -1,19 +1,19 @@
 import axios from "@/api/axios"
 
 const getFeedCountTotal = () => {
-  return axios.$get("/feedCountTotal")
+  return axios.get("/feedCountTotal")
 }
 
 const getFeedCountByTag = () => {
-  return axios.$get("/feedCountByTag")
+  return axios.get("/feedCountByTag")
 }
 
 const getFeedCountByUser = () => {
-  return axios.$get("/feedCountByUser")
+  return axios.get("/feedCountByUser")
 }
 
 const getFeedCountByLike = () => {
-  return axios.$get("/feedCountByLike")
+  return axios.get("/feedCountByLike")
 }
 
 export default {

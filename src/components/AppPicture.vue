@@ -50,7 +50,7 @@ export default {
           return this.dataItem.src
 
         case false:
-          return require(`~/assets/images/${this.dataItem.src}`)
+          return require(`@/assets/images/${this.dataItem.src}`)
 
         default:
           return null
@@ -79,7 +79,7 @@ export default {
         isOuterSrc(this.dataItem.srcSource[0]) === false
       ) {
         return this.dataItem.srcSource.map((item) =>
-          require(`~/assets/images/${item}`)
+          require(`@/assets/images/${item}`)
         )
       } else {
         return null

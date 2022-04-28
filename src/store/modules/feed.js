@@ -68,7 +68,8 @@ const actions = {
     commit(mutationTypes.setFeedStart)
 
     try {
-      const data = await feed.getFeed(payload)
+      const res = await feed.getFeed(payload)
+      const data = res.data
 
       commit(mutationTypes.setFeedSuccess, data[0])
       return data
@@ -82,7 +83,8 @@ const actions = {
     commit(mutationTypes.setFeedStart)
 
     try {
-      const data = await feed.createFeed(payload)
+      const res = await feed.createFeed(payload)
+      const data = res.data
 
       commit(mutationTypes.setFeedSuccess, data)
       return data
@@ -96,7 +98,8 @@ const actions = {
     commit(mutationTypes.setFeedStart)
 
     try {
-      const data = await feed.updateFeed(payload)
+      const res = await feed.updateFeed(payload)
+      const data = res.data
 
       commit(mutationTypes.setFeedSuccess, data)
       return data
@@ -110,7 +113,8 @@ const actions = {
     commit(mutationTypes.deleteFeedStart)
 
     try {
-      const data = await feed.deleteFeed(payload)
+      const res = await feed.deleteFeed(payload)
+      const data = res.data
 
       commit(mutationTypes.deleteFeedSuccess, data)
     } catch (err) {

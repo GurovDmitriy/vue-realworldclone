@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheFormUpdate from "@/components/TheFromUpdate"
+import TheFormUpdate from "@/components/TheFormUpdate"
 
 export default {
   name: "PageUpdate",

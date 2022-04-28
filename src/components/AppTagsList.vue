@@ -2,7 +2,7 @@
   <ul class="tags-list">
     <AppTagsListItem
       v-for="item in dataItem"
-      :key="item.tag"
+      :key="item.content"
       :data-item="item"
       class="tags-list__tags-list-item"
     />
@@ -18,11 +18,6 @@ export default {
   components: {
     AppTagsListItem,
   },
-}
-</script>
-
-<script>
-export default {
   props: {
     dataItem: {
       type: Array,

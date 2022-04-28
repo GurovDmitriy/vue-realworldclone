@@ -4,7 +4,7 @@ import { isNotEmptyStr } from "@/helpers/utils"
 const getUser = (payload) => {
   if (isNotEmptyStr(payload)) {
     const query = `?${payload}`
-    return axios.$get(`/userList${query}`)
+    return axios.get(`/userList${query}`)
   }
 
   return {}

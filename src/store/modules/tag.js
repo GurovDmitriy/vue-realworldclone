@@ -39,7 +39,8 @@ const actions = {
     commit(mutationTypes.setTagsPopularStart)
 
     try {
-      const data = await tag.getTagsPopular()
+      const res = await tag.getTagsPopular()
+      const data = res.data
 
       commit(mutationTypes.setTagsPopularSuccess, data)
       return data

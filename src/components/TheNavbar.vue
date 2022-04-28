@@ -80,7 +80,11 @@ export default {
     },
 
     getNavLinkUser() {
-      if (!this.getIsAnonymous && !this.getIsLoadingCurrentUser) {
+      if (
+        !this.getIsAnonymous &&
+        !this.getIsLoadingCurrentUser &&
+        this.getCurrentUser
+      ) {
         return {
           content: `${this.getCurrentUser.userName}`,
           path: `/users/${this.getCurrentUser.userName}`,

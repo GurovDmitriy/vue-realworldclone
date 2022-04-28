@@ -1,0 +1,12 @@
+{
+  "/users*": "/644/users$1",
+  "/feeds*": "/664/feeds$1",
+  "/userList*": "/444/userList$1",
+  "/feedList*": "/444/feedList$1",
+  "/tags*": "/444/tags$1",
+  "/tagsPopular*": "/444/tagsPopular$1",
+  "/feedCountTotal*": "/444/feedCountTotal$1",
+  "/feedCountByTag*": "/444/feedCountByTag$1",
+  "/feedCountByUser*": "/444/feedCountByUser$1",
+  "/feedCountByLIke*": "/444/feedCountByLIke$1"
+}

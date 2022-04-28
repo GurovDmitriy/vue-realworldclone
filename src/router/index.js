@@ -1,22 +1,18 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import { getterTypes as getterTypesAuth } from "@/store/auth"
-import PageHome from "../views/PageHome.vue"
+import PageHome from "@/views/PageHome.vue"
+// import store from "@/store"
+// import { actionTypes as actionTypesAuth } from "@/store/modules/auth"
+// import { getItemLS } from "@/helpers/persistanceStorage"
 
 Vue.use(VueRouter)
-
-const auth = (to, from, next) => {
-  const isAuthorized = this.$store.getters[getterTypesAuth.getIsLoggedIn]
-
-  if (!isAuthorized) next({ name: "PageLogin" })
-  else next()
-}
 
 const routes = [
   {
     path: "/",
     name: "PageHome",
     component: PageHome,
+    // beforeEnter: auth,
   },
 
   {
@@ -25,7 +21,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "PageEditor" */ "../views/PageEditor.vue"),
 
-    beforeEnter: auth,
+    // beforeEnter: auth,
   },
 
   {
@@ -105,7 +101,25 @@ const routes = [
   },
 ]
 
+// middleware
+
+// const auth = async (to, from, next) => {
+//   // const userId = getItemLS("userId")
+//   console.log("middle")
+//   const test = false
+
+//   if (test) {
+//     // await store.dispatch(actionTypesAuth.fetchCurrentUser, userId)
+//     // next()
+//   } else {
+//     await store.dispatch(actionTypesAuth.logout)
+//     next({ name: "PageLogin" })
+//   }
+// }
+
 const router = new VueRouter({
+  mode: "history",
+  base: process.env.BASE_URL,
   routes,
 })
 
