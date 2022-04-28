@@ -181,7 +181,7 @@ export default {
       const slugFeed = getStrKebabCase(feedNew.title)
       await this.$store.dispatch(actionTypesFeed.createFeed, feedNew)
 
-      return this.$router.push({ path: `/feed/${slugFeed}` })
+      return this.$router.push({ name: "PageFeed", params: { feed: slugFeed } })
     },
   },
 }

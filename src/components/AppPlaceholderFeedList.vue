@@ -9,13 +9,15 @@
 </template>
 
 <script>
+import AppPlaceholderFeedListItem from "@/components/AppPlaceholderFeedListItem"
+
 export default {
   name: "AppPlaceholderFeedList",
-}
-</script>
 
-<script>
-export default {
+  components: {
+    AppPlaceholderFeedListItem,
+  },
+
   props: {
     dataItem: {
       type: Number,

@@ -17,7 +17,6 @@ import { actionTypes as actionTypesTag } from "@/store/modules/tag"
 import { actionTypes as actionTypesFeedList } from "@/store/modules/feedList"
 import { actionTypes as actionTypesFeedCount } from "@/store/modules/feedCount"
 import { paginator } from "@/helpers/vars"
-// import { getIsValidParamsTag } from "@/helpers/validateHook"
 
 export default {
   name: "PageTag",
@@ -28,23 +27,11 @@ export default {
     TheColumnWrapperMain,
   },
 
-  // watch: {
-  //   "this.$params.query"(value) {
-  //     console.log(value)
-  //   },
-  // },
-
-  // async validate({ params }) {
-  //   const res = await fetch(
-  //     `http://localhost:3005/feeds?tags_like=${params.tag}`,
-  //     {
-  //       method: "GET",
-  //     }
-  //   )
-  //   const data = await res.json()
-
-  //   return getIsValidParamsTag(params.tag, data)
-  // },
+  watch: {
+    "$params.query"() {
+      this.fetchData()
+    },
+  },
 
   mounted() {
     this.fetchData()
@@ -66,10 +53,6 @@ export default {
           ),
           this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "tag"),
         ])
-
-        // return {
-        //   tag,
-        // }
       } catch (err) {
         console.log(err)
       }

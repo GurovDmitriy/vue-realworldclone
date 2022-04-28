@@ -28,11 +28,15 @@ export default {
     TheColumnWrapperMain,
   },
 
+  watch: {
+    "$route.query"() {
+      this.fetchData()
+    },
+  },
+
   mounted() {
     this.fetchData()
   },
-
-  // middleware: ["auth"],
 
   methods: {
     async fetchData() {
@@ -40,7 +44,7 @@ export default {
         const userName =
           this.$store.getters[getterTypesAuth.getCurrentUser].userName
         const pageNum = this.$route.query.page || 1
-        const feedListPayload = `userName=${userName}&_page=${pageNum}&_limit=${paginator.index}`
+        const feedListPayload = `userName=${userName}&_page=${pageNum}&_limit=${paginator.feedList.main}`
 
         await Promise.allSettled([
           this.$store.dispatch(actionTypesTag.fetchTagsPopular),

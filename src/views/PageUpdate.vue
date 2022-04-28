@@ -14,8 +14,6 @@ export default {
   components: {
     TheFormUpdate,
   },
-
-  // middleware: ["auth", "update"],
 }
 </script>
 

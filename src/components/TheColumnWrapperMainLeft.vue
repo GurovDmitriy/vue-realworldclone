@@ -68,11 +68,6 @@ export default {
 
   mixins: [CreateFeedList],
 
-  transitions: {
-    name: "elements",
-    mode: "out-in",
-  },
-
   data() {
     return {
       filterBar: [{ content: "Global Feed", path: "/", isActive: false }],
@@ -180,11 +175,11 @@ export default {
     },
   },
 
-  methods: {
-    fetchFeedList() {
-      this.$nuxt.refresh()
-    },
-  },
+  // methods: {
+  //   fetchFeedList() {
+  //     console.log("refresh")
+  //   },
+  // },
 }
 </script>
 

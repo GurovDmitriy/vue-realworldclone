@@ -131,9 +131,9 @@ const actions = {
 
     try {
       const res = await auth.register(payload)
-      const accessToken = res.accessToken
-      const userId = res.user.id
-      const data = res.user
+      const accessToken = res.data.accessToken
+      const userId = res.data.user.id
+      const data = res.data.user
 
       // setItemCO(this.$cookies, "accessToken", accessToken)
       // setItemCO(this.$cookies, "userId", userId)
@@ -143,7 +143,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setCurrentUserFailure, err)
-      throw err
+      // throw err
     }
   },
 
@@ -152,9 +152,9 @@ const actions = {
 
     try {
       const res = await auth.login(payload)
-      const accessToken = res.accessToken
-      const userId = res.user.id
-      const data = res.user
+      const accessToken = res.data.accessToken
+      const userId = res.data.user.id
+      const data = res.data.user
 
       // setItemCO(this.$cookies, "accessToken", accessToken)
       // setItemCO(this.$cookies, "userId", userId)
@@ -164,7 +164,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setCurrentUserFailure, err)
-      throw err
+      // throw err
     }
   },
 
@@ -172,13 +172,14 @@ const actions = {
     commit(mutationTypes.setCurrentUserStart)
 
     try {
-      const data = await auth.getUser(payload)
+      const res = await auth.getUser(payload)
+      const data = res.data
 
       commit(mutationTypes.setCurrentUserSuccess, data)
       return data
     } catch (err) {
       commit(mutationTypes.setCurrentUserFailure, err)
-      throw err
+      // // throw err
     }
   },
 
@@ -186,14 +187,15 @@ const actions = {
     commit(mutationTypes.updateCurrentUserStart)
 
     try {
-      const data = await auth.updateUser(payload)
+      const res = await auth.updateUser(payload)
+      const data = res.data
       delete data.password
 
       commit(mutationTypes.updateCurrentUserSuccess, data)
       return data
     } catch (err) {
       commit(mutationTypes.updateCurrentUserFailure, err)
-      throw err
+      // throw err
     }
   },
 
@@ -208,19 +210,9 @@ const actions = {
       commit(mutationTypes.logoutSuccess)
     } catch (err) {
       commit(mutationTypes.logoutFailure, err)
-      throw err
+      // throw err
     }
   },
-
-  // async nuxtServerInit({ dispatch }) {
-  //   const userId = this.$cookies.get("userId")
-
-  //   if (userId) {
-  //     await dispatch(actionTypes.fetchCurrentUser, userId)
-  //   } else {
-  //     await dispatch(actionTypes.logout)
-  //   }
-  // },
 }
 
 export default {

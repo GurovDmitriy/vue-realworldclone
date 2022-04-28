@@ -107,7 +107,7 @@ export default {
 
   methods: {
     fetchFeedList() {
-      this.$nuxt.refresh()
+      console.log("refresh")
     },
   },
 }

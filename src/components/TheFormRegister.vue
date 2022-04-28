@@ -161,7 +161,7 @@ export default {
       if (this.getIsSubmittingForm) return false
 
       await this.$store.dispatch(actionTypesAuth.register, this.field)
-      return this.$router.push({ path: "/" })
+      return this.$router.push({ name: "PageHome" })
     },
   },
 }

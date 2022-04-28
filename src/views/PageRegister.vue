@@ -14,8 +14,6 @@ export default {
   components: {
     TheColumnWrapperRegister,
   },
-
-  // middleware: ["guest"],
 }
 </script>
 

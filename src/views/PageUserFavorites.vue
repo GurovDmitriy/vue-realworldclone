@@ -29,7 +29,6 @@ import { actionTypes as actionTypesUser } from "@/store/modules/user"
 import { actionTypes as actionTypesFeedList } from "@/store/modules/feedList"
 import { actionTypes as actionTypesFeedCount } from "@/store/modules/feedCount"
 import { paginator } from "@/helpers/vars"
-// import { getIsValidParamsUser } from "@/helpers/validateHooks"
 import DataPaginator from "@/mixins/dataPaginator"
 
 export default {
@@ -44,13 +43,6 @@ export default {
   },
 
   mixins: [DataPaginator],
-
-  // async validate({ params, store }) {
-  //   const userPayload = `userName=${params.user}`
-  //   const user = await store.dispatch(actionTypesUser.fetchUser, userPayload)
-
-  //   return getIsValidParamsUser(params.user, user)
-  // },
 
   computed: {
     ...mapState({
@@ -82,10 +74,6 @@ export default {
           ),
           this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "like"),
         ])
-
-        // return {
-        //   userName,
-        // }
       } catch (err) {
         console.log(err)
       }

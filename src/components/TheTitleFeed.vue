@@ -35,7 +35,7 @@ import { actionTypes as actionTypesFeed } from "@/store/modules/feed"
 import { isNotEmptyObj } from "@/helpers/utils"
 
 export default {
-  name: "TheFeed",
+  name: "TheTitleFeed",
 
   components: {
     AppPlaceholderFeedUser,
@@ -120,7 +120,7 @@ export default {
     editFeed() {
       if (!this.getIsOwnerFeed) return false
 
-      return this.$router.push({ path: "/update" })
+      return this.$router.push({ name: "PageUpdate" })
     },
 
     async deleteFeed() {
@@ -130,7 +130,10 @@ export default {
       const idFeed = this.getFeed.id
 
       await this.$store.dispatch(actionTypesFeed.deleteFeed, idFeed)
-      return this.$router.push({ path: `/users/${currentUserName}` })
+      return this.$router.push({
+        name: "PageUser",
+        params: { user: currentUserName },
+      })
     },
   },
 }

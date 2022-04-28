@@ -113,7 +113,7 @@ export default {
     },
 
     async toggleLike(feedId) {
-      if (!this.getIsLoggedIn) return this.$router.push({ path: "/login" })
+      if (!this.getIsLoggedIn) return this.$router.push({ name: "PageLogin" })
       if (this.getIsLoadingToggleLike) return false
 
       const userId = this.getCurrentUser.id

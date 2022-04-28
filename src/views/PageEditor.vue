@@ -14,8 +14,6 @@ export default {
   components: {
     TheFormEditor,
   },
-
-  // middleware: ["auth"],
 }
 </script>
 

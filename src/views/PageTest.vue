@@ -17,8 +17,6 @@ export default {
     AppHero,
     TheTitle,
   },
-
-  // layout: "test",
 }
 </script>
 

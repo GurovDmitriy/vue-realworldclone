@@ -13,10 +13,9 @@ import AppHero from "@/components/AppHero"
 import TheTitleFeed from "@/components/TheTitleFeed"
 import TheColumnWrapperFeed from "@/components/TheColumnWrapperFeed"
 
-// import { actionTypes as actionTypesFeed } from "@/store/modules/feed"
-// import { actionTypes as actionTypesUser } from "@/store/modules/user"
-// import { getStrFromKebabCase } from "@/helpers/utils"
-// import { getIsValidParamsFeed } from "@/helpers/validateHook"
+import { actionTypes as actionTypesFeed } from "@/store/modules/feed"
+import { actionTypes as actionTypesUser } from "@/store/modules/user"
+import { getStrFromKebabCase } from "@/helpers/utils"
 
 export default {
   name: "PageFeed",
@@ -27,33 +26,25 @@ export default {
     TheColumnWrapperFeed,
   },
 
-  // async validate({ params }) {
-  //   const feed = getStrFromKebabCase(params.feed)
-  //   const res = await fetch(`http://localhost:3005/feeds?title_like=${feed}`, {
-  //     method: "GET",
-  //   })
-  //   const data = await res.json()
+  mounted() {
+    this.fetchData()
+  },
 
-  //   return getIsValidParamsFeed(feed, data)
-  // },
+  methods: {
+    async fetchData() {
+      try {
+        const feedTitle = getStrFromKebabCase(this.$route.params.feed)
 
-  // async asyncData({ params, store, error }) {
-  //   try {
-  //     const feedTitle = getStrFromKebabCase(params.feed)
+        const feedPayload = `title=${feedTitle}`
+        await this.$store.dispatch(actionTypesFeed.fetchFeed, feedPayload)
 
-  //     const feedPayload = `title=${feedTitle}`
-  //     await store.dispatch(actionTypesFeed.fetchFeed, feedPayload)
-
-  //     const userPayload = `id=${store.state.feed.feed.userId}`
-  //     await store.dispatch(actionTypesUser.fetchUser, userPayload)
-
-  //     return {
-  //       feedTitle,
-  //     }
-  //   } catch (err) {
-  //     error(err)
-  //   }
-  // },
+        const userPayload = `id=${this.$store.state.feed.feed.userId}`
+        await this.$store.dispatch(actionTypesUser.fetchUser, userPayload)
+      } catch (err) {
+        console.log(err)
+      }
+    },
+  },
 }
 </script>
 

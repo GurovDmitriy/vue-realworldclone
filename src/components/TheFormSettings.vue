@@ -189,7 +189,7 @@ export default {
       if (this.getIsSubmittingForm) return false
 
       await this.$store.dispatch(actionTypesAuth.logout)
-      return this.$router.push({ path: "/login" })
+      return this.$router.push({ name: "PageLogin" })
     },
   },
 }

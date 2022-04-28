@@ -13,12 +13,11 @@
         class="column-wrapper-main-right__refresh"
         @clickBtn="fetchTags"
       />
-      <template v-if="getTagsPopular">
-        <AppTagsList
-          :data-item="getDataTagsPopular"
-          class="column-wrapper-main-right__tags-list"
-        />
-      </template>
+      <AppTagsList
+        v-if="getTagsPopular"
+        :data-item="getDataTagsPopular"
+        class="column-wrapper-main-right__tags-list"
+      />
     </div>
   </aside>
 </template>
@@ -75,7 +74,7 @@ export default {
 
   methods: {
     fetchTags() {
-      this.$nuxt.refresh()
+      console.log("refresh")
     },
   },
 }
