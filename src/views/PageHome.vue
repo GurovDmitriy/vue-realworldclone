@@ -35,26 +35,23 @@ export default {
 
   mounted() {
     this.fetchData()
+    console.log("feedList", this.$store.state)
   },
 
   methods: {
     async fetchData() {
-      try {
-        const pageNum = this.$route.query.page || 1
-        const itemPerPage = paginator.feedList.main
-        const feedListPayload = `_page=${pageNum}&_limit=${itemPerPage}`
+      const pageNum = this.$route.query.page || 1
+      const itemPerPage = paginator.feedList.main
+      const feedListPayload = `_page=${pageNum}&_limit=${itemPerPage}`
 
-        await Promise.allSettled([
-          this.$store.dispatch(actionTypesTag.fetchTagsPopular),
-          this.$store.dispatch(
-            actionTypesFeedList.fetchFeedList,
-            feedListPayload
-          ),
-          this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "total"),
-        ])
-      } catch (err) {
-        console.log(err)
-      }
+      await Promise.allSettled([
+        this.$store.dispatch(actionTypesTag.fetchTagsPopular),
+        this.$store.dispatch(
+          actionTypesFeedList.fetchFeedList,
+          feedListPayload
+        ),
+        this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "total"),
+      ])
     },
   },
 }

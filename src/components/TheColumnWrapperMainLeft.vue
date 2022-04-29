@@ -1,13 +1,14 @@
 <template>
   <section class="column-wrapper-main-left">
     <h3 class="column-wrapper-main-left__caption visually-hidden">Feed List</h3>
+
     <AppFilterBar
       :data-item="getDataFilterBar"
       class="column-wrapper-main-left__filter-bar"
     />
     <AppFeedList
-      v-if="getFeedList"
-      :data-item="getDataFeedList"
+      v-if="testData.length"
+      :data-item="testData"
       class="column-wrapper-main-left__feed-list"
       @toggleLike="toggleLike($event)"
     />
@@ -50,6 +51,7 @@ import AppPlaceholderPaginator from "@/components/AppPlaceholderPaginator"
 import { mapState, mapGetters } from "vuex"
 import CreateFeedList from "@/mixins/dataFeedList"
 import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
+// eslint-disable-next-line no-unused-vars
 import { getArrRange, isNotEmptyArr, isNotEmptyObj } from "@/helpers/utils"
 import { paginator } from "@/helpers/vars"
 
@@ -71,6 +73,8 @@ export default {
   data() {
     return {
       filterBar: [{ content: "Global Feed", path: "/", isActive: false }],
+
+      testData: [],
     }
   },
 
@@ -175,11 +179,27 @@ export default {
     },
   },
 
-  // methods: {
-  //   fetchFeedList() {
-  //     console.log("refresh")
-  //   },
-  // },
+  watch: {
+    "$store.state.feedList.feedList"(value) {
+      console.log(value)
+    },
+  },
+
+  mounted() {
+    this.testFetch()
+  },
+
+  methods: {
+    // fetchFeedList() {
+    //   console.log("refresh")
+    // },
+
+    async testFetch() {
+      const res = await fetch("http://localhost:3005/feedList")
+      const data = await res.json()
+      this.testData = data
+    },
+  },
 }
 </script>
 

@@ -7,4 +7,7 @@ module.exports = {
       patterns: [path.resolve(__dirname, "./src/assets/styles/main.scss")],
     },
   },
+  configureWebpack: {
+    devtool: "source-map",
+  },
 }
