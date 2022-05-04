@@ -3,34 +3,35 @@ import VueRouter from "vue-router"
 import PageHome from "@/views/PageHome.vue"
 import store from "@/store"
 import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
-import { actionTypes as actionTypesAuth } from "@/store/modules/auth"
+// import { actionTypes as actionTypesAuth } from "@/store/modules/auth"
 
 const isLoggedIn = store.getters[getterTypesAuth.getIsLoggedIn]
-console.log(isLoggedIn)
 
 const auth = async (to, from, next) => {
+  console.log(isLoggedIn)
   if (isLoggedIn) {
     next()
   } else {
-    await store.dispatch(actionTypesAuth.logout)
+    // await store.dispatch(actionTypesAuth.logout)
     next({ name: "PageLogin" })
   }
 }
 
 const guest = async (to, from, next) => {
+  console.log(isLoggedIn)
   if (isLoggedIn) {
     next()
   } else {
-    await store.dispatch(actionTypesAuth.logout)
+    // await store.dispatch(actionTypesAuth.logout)
     next()
   }
 }
 
 const logged = async (to, from, next) => {
+  console.log(isLoggedIn)
   if (isLoggedIn) {
     next({ name: "PageHome" })
   } else {
-    await store.dispatch(actionTypesAuth.logout)
     next()
   }
 }
