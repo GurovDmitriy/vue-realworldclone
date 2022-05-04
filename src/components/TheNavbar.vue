@@ -63,15 +63,19 @@ export default {
     }),
 
     ...mapState({
-      getIsLoadingCurrentUser: ({ auth }) => auth.isLoading,
+      getIsLoadingCurrentUser: (state) => state.auth.isLoading,
     }),
+
+    getCurrentUser() {
+      return this.$store.state.auth.currentUser
+    },
 
     getNavList() {
       const listLogged = this.navList.logged
       const listDefault = this.navList.default
       const listUser = this.getNavLinkUser
 
-      switch (this.getIsLoggedIn) {
+      switch (true) {
         case true:
           return [...listLogged, listUser]
         default:

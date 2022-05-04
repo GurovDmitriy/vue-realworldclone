@@ -1,5 +1,4 @@
 import auth from "@/api/auth"
-// import { setItemCO, removeItemCO } from "@/helpers/persistanceCookie"
 import { setItemLS } from "@/helpers/persistanceStorage"
 
 export const getterTypes = {
@@ -31,8 +30,16 @@ export const actionTypes = {
   logout: "[auth] logout",
 }
 
-export const state = () => ({
-  currentUser: {},
+const state = () => ({
+  currentUser: {
+    email: "admin@admin.com",
+    firstName: "Russel",
+    id: 1,
+    image: "https://i.pravatar.cc/100?img=1",
+    lastName: "Crooks",
+    role: "admin",
+    userName: "Admin",
+  },
   isLoggedIn: null,
   isSubmitting: false,
   isLoading: false,
@@ -62,7 +69,7 @@ const mutations = {
   [mutationTypes.setCurrentUserStart](state) {
     state.isSubmitting = true
     state.isLoading = true
-    state.currentUser = {}
+    state.currentUser = null
     state.isLoggedIn = null
     state.errors = null
   },
@@ -84,7 +91,7 @@ const mutations = {
   [mutationTypes.updateCurrentUserStart](state) {
     state.isSubmitting = true
     state.isLoading = true
-    state.currentUser = {}
+    state.currentUser = null
     state.isLoggedIn = true
     state.errors = null
   },
@@ -135,8 +142,6 @@ const actions = {
       const userId = res.data.user.id
       const data = res.data.user
 
-      // setItemCO(this.$cookies, "accessToken", accessToken)
-      // setItemCO(this.$cookies, "userId", userId)
       setItemLS("credential", { accessToken, userId })
 
       commit(mutationTypes.setCurrentUserSuccess, data)
@@ -156,8 +161,6 @@ const actions = {
       const userId = res.data.user.id
       const data = res.data.user
 
-      // setItemCO(this.$cookies, "accessToken", accessToken)
-      // setItemCO(this.$cookies, "userId", userId)
       setItemLS("credential", { accessToken, userId })
 
       commit(mutationTypes.setCurrentUserSuccess, data)
@@ -203,8 +206,6 @@ const actions = {
     commit(mutationTypes.logoutStart)
 
     try {
-      // removeItemCO(this.$cookies, "accessToken")
-      // removeItemCO(this.$cookies, "userId")
       setItemLS("credential", "")
 
       commit(mutationTypes.logoutSuccess)
@@ -216,6 +217,7 @@ const actions = {
 }
 
 export default {
+  state,
   mutations,
   actions,
   getters,

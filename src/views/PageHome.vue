@@ -35,7 +35,6 @@ export default {
 
   mounted() {
     this.fetchData()
-    console.log("feedList", this.$store.state)
   },
 
   methods: {

@@ -7,8 +7,8 @@
       class="column-wrapper-main-left__filter-bar"
     />
     <AppFeedList
-      v-if="testData.length"
-      :data-item="testData"
+      v-if="getFeedList"
+      :data-item="getDataFeedList"
       class="column-wrapper-main-left__feed-list"
       @toggleLike="toggleLike($event)"
     />
@@ -51,7 +51,6 @@ import AppPlaceholderPaginator from "@/components/AppPlaceholderPaginator"
 import { mapState, mapGetters } from "vuex"
 import CreateFeedList from "@/mixins/dataFeedList"
 import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
-// eslint-disable-next-line no-unused-vars
 import { getArrRange, isNotEmptyArr, isNotEmptyObj } from "@/helpers/utils"
 import { paginator } from "@/helpers/vars"
 
@@ -73,8 +72,9 @@ export default {
   data() {
     return {
       filterBar: [{ content: "Global Feed", path: "/", isActive: false }],
-
-      testData: [],
+      dataReady: {
+        feedList: false,
+      },
     }
   },
 
@@ -142,15 +142,17 @@ export default {
       const countPages = getArrRange(1, Math.ceil(countItem / delim))
 
       const query = this.$route.query
-      const queryPage = this.$route.query.page
+      const queryPage = Number(this.$route.query.page)
 
       return countPages.map((item, index) => {
         let isActive = null
 
         if (index === 0 && !isNotEmptyObj(query)) {
           isActive = true
+        } else if (queryPage === item) {
+          isActive = true
         } else {
-          isActive = queryPage === item || queryPage === 1
+          isActive = false
         }
 
         return {
@@ -176,28 +178,6 @@ export default {
         !this.getIsLoadingFeedList &&
         !this.getIsLoadingFeedCount
       )
-    },
-  },
-
-  watch: {
-    "$store.state.feedList.feedList"(value) {
-      console.log(value)
-    },
-  },
-
-  mounted() {
-    this.testFetch()
-  },
-
-  methods: {
-    // fetchFeedList() {
-    //   console.log("refresh")
-    // },
-
-    async testFetch() {
-      const res = await fetch("http://localhost:3005/feedList")
-      const data = await res.json()
-      this.testData = data
     },
   },
 }

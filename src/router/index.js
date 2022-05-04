@@ -2,23 +2,14 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import PageHome from "@/views/PageHome.vue"
 import store from "@/store"
+import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
 import { actionTypes as actionTypesAuth } from "@/store/modules/auth"
-import { getItemLS } from "@/helpers/persistanceStorage"
+
+const isLoggedIn = store.getters[getterTypesAuth.getIsLoggedIn]
+console.log(isLoggedIn)
 
 const auth = async (to, from, next) => {
-  const credential = getItemLS("credential")
-  let userId = null
-  let user = null
-
-  if (credential && credential.userId) {
-    userId = credential.userId
-  }
-
-  if (userId) {
-    user = await store.dispatch(actionTypesAuth.fetchCurrentUser, userId)
-  }
-
-  if (user) {
+  if (isLoggedIn) {
     next()
   } else {
     await store.dispatch(actionTypesAuth.logout)
@@ -27,19 +18,7 @@ const auth = async (to, from, next) => {
 }
 
 const guest = async (to, from, next) => {
-  let credential = getItemLS("credential")
-  let userId = null
-  let user = null
-
-  if (credential && credential.userId) {
-    userId = credential.userId
-  }
-
-  if (userId) {
-    user = await store.dispatch(actionTypesAuth.fetchCurrentUser, userId)
-  }
-
-  if (user) {
+  if (isLoggedIn) {
     next()
   } else {
     await store.dispatch(actionTypesAuth.logout)
@@ -48,19 +27,7 @@ const guest = async (to, from, next) => {
 }
 
 const logged = async (to, from, next) => {
-  const credential = getItemLS("credential")
-  let userId = null
-  let user = null
-
-  if (credential && credential.userId) {
-    userId = credential.userId
-  }
-
-  if (userId) {
-    user = await store.dispatch(actionTypesAuth.fetchCurrentUser, userId)
-  }
-
-  if (user) {
+  if (isLoggedIn) {
     next({ name: "PageHome" })
   } else {
     await store.dispatch(actionTypesAuth.logout)

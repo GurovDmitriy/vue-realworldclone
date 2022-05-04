@@ -10,7 +10,7 @@ export const actionTypes = {
   fetchUser: "[user] fetchUser",
 }
 
-export const state = () => ({
+const state = () => ({
   user: {},
   isLoading: false,
   errors: null,
@@ -52,6 +52,7 @@ const actions = {
 }
 
 export default {
+  state,
   mutations,
   actions,
 }

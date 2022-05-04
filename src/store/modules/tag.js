@@ -10,7 +10,7 @@ export const actionTypes = {
   fetchTagsPopular: "[tag] fetchTagsPopular",
 }
 
-export const state = () => ({
+const state = () => ({
   tagsPopular: [],
   isLoading: false,
   errors: null,
@@ -52,6 +52,7 @@ const actions = {
 }
 
 export default {
+  state,
   mutations,
   actions,
 }

@@ -16,7 +16,7 @@ export const actionTypes = {
   toggleLikeFeed: "[feedList] toggleLikeFeed",
 }
 
-export const state = () => ({
+const state = () => ({
   feedList: [],
   isLoadingFeedList: false,
   errorsFeedList: null,
@@ -94,6 +94,7 @@ const actions = {
 }
 
 export default {
+  state,
   mutations,
   actions,
 }

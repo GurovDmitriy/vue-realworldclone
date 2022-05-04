@@ -17,7 +17,7 @@ export const actionTypes = {
   deleteFeed: "[feed] deleteFeed",
 }
 
-export const state = () => ({
+const state = () => ({
   feed: {},
   isLoading: false,
   isSubmitting: false,
@@ -125,6 +125,7 @@ const actions = {
 }
 
 export default {
+  state,
   mutations,
   actions,
 }

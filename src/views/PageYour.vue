@@ -22,7 +22,7 @@ import { paginator } from "@/helpers/vars"
 export default {
   name: "PageYour",
 
-  component: {
+  components: {
     AppHero,
     TheTitle,
     TheColumnWrapperMain,
@@ -40,23 +40,19 @@ export default {
 
   methods: {
     async fetchData() {
-      try {
-        const userName =
-          this.$store.getters[getterTypesAuth.getCurrentUser].userName
-        const pageNum = this.$route.query.page || 1
-        const feedListPayload = `userName=${userName}&_page=${pageNum}&_limit=${paginator.feedList.main}`
+      const userName =
+        this.$store.getters[getterTypesAuth.getCurrentUser].userName
+      const pageNum = this.$route.query.page || 1
+      const feedListPayload = `userName=${userName}&_page=${pageNum}&_limit=${paginator.feedList.main}`
 
-        await Promise.allSettled([
-          this.$store.dispatch(actionTypesTag.fetchTagsPopular),
-          this.$store.dispatch(
-            actionTypesFeedList.fetchFeedList,
-            feedListPayload
-          ),
-          this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "user"),
-        ])
-      } catch (err) {
-        console.log(err)
-      }
+      await Promise.allSettled([
+        this.$store.dispatch(actionTypesTag.fetchTagsPopular),
+        this.$store.dispatch(
+          actionTypesFeedList.fetchFeedList,
+          feedListPayload
+        ),
+        this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "user"),
+      ])
     },
   },
 }

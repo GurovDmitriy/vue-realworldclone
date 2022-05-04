@@ -10,7 +10,7 @@ export const actionTypes = {
   fetchFeedCount: "[feedCount] fetchFeedCount",
 }
 
-export const state = () => ({
+const state = () => ({
   feedCount: {},
   isLoading: false,
   errors: null,
@@ -70,6 +70,7 @@ const actions = {
 }
 
 export default {
+  state,
   mutations,
   actions,
 }
