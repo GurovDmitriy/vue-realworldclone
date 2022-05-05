@@ -6,12 +6,9 @@
     :disabled="disabled"
     @click="emitClickBtn"
   >
-    <!-- <Svg
-      class="button-icon__icon"
-      :symbol="dataItem.iconName"
-      size="0 0 16 16"
-      role="presentation"
-    /> -->
+    <span class="button-icon__icon">
+      <slot name="icon"></slot>
+    </span>
     <span class="button-icon__text"><slot name="default">Click</slot></span>
   </button>
 </template>
@@ -19,10 +16,6 @@
 <script>
 export default {
   name: "AppButtonIcon",
-
-  // components: {
-  //   SvgIcon,
-  // },
 
   props: {
     dataItem: {
@@ -95,6 +88,8 @@ export default {
   display: inline-block;
   width: 16px;
   height: 16px;
+
+  margin-right: $space-xs;
 
   vertical-align: middle;
 }

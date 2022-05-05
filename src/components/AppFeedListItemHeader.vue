@@ -9,14 +9,20 @@
       :is-active="dataItem.btnLike.isActive"
       class="feed-list-item-header__button-icon"
       @clickBtn="emitToggleLike"
-      >{{ dataItem.btnLike.count }}</AppButtonIcon
     >
+      <template #icon>
+        <AppIcon><IconHeartFill /></AppIcon>
+      </template>
+      <template #default>{{ dataItem.btnLike.count }}</template>
+    </AppButtonIcon>
   </div>
 </template>
 
 <script>
 import AppAuthor from "@/components/AppAuthor"
 import AppButtonIcon from "@/components/AppButtonIcon"
+import AppIcon from "@/components/AppIcon"
+import IconHeartFill from "@/components/icons/IconHeartFill"
 
 export default {
   name: "AppFeedListItemHeader",
@@ -24,6 +30,8 @@ export default {
   components: {
     AppAuthor,
     AppButtonIcon,
+    AppIcon,
+    IconHeartFill,
   },
 
   props: {
