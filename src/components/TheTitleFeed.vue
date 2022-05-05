@@ -12,14 +12,26 @@
           :data-item="config.btn.delete"
           class="title-feed__btn title-feed__btn--delete"
           @clickBtn="deleteFeed"
-          >Delete</AppButtonIcon
         >
+          <template #icon>
+            <AppIcon :icon-name="config.btn.delete.iconName">
+              <IconTrashFill />
+            </AppIcon>
+          </template>
+          <template #default>Delete</template>
+        </AppButtonIcon>
         <AppButtonIcon
           :data-item="config.btn.edit"
           class="title-feed__btn title-feed__btn--edit"
           @clickBtn="editFeed"
-          >Edit</AppButtonIcon
         >
+          <template #icon>
+            <AppIcon :icon-name="config.btn.edit.iconName">
+              <IconPencilFill />
+            </AppIcon>
+          </template>
+          <template #default>Edit</template>
+        </AppButtonIcon>
       </div>
     </template>
   </div>
@@ -29,6 +41,9 @@
 import AppPlaceholderFeedUser from "@/components/AppPlaceholderFeedUser"
 import AppAuthor from "@/components/AppAuthor"
 import AppButtonIcon from "@/components/AppButtonIcon"
+import AppIcon from "@/components/AppIcon"
+import IconPencilFill from "@/components/icons/IconPencilFill"
+import IconTrashFill from "@/components/icons/IconTrashFill"
 
 import { mapState } from "vuex"
 import { actionTypes as actionTypesFeed } from "@/store/modules/feed"
@@ -41,6 +56,9 @@ export default {
     AppPlaceholderFeedUser,
     AppAuthor,
     AppButtonIcon,
+    AppIcon,
+    IconPencilFill,
+    IconTrashFill,
   },
 
   data() {
@@ -50,13 +68,11 @@ export default {
           edit: {
             type: "button",
             iconName: "pencil-fill",
-            iconDesc: "icon",
           },
 
           delete: {
             type: "button",
             iconName: "trash-fill",
-            iconDesc: "icon",
           },
         },
 

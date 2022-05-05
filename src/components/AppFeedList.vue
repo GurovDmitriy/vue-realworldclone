@@ -45,7 +45,6 @@ export default {
             isActive: false,
             type: "button",
             iconName: "heart-fill",
-            iconDesc: "heart",
           },
 
           content: {

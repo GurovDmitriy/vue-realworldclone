@@ -16,7 +16,6 @@ export default {
           btnLike: {
             type: "button",
             iconName: "heart-fill",
-            iconDesc: "heart",
           },
         },
 

@@ -23,8 +23,6 @@ export default {
       required: false,
       default: () => ({
         type: "button",
-        iconName: "bug-fill",
-        iconDesc: "icon",
       }),
     },
 

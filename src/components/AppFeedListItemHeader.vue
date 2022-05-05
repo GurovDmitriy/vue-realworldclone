@@ -11,7 +11,9 @@
       @clickBtn="emitToggleLike"
     >
       <template #icon>
-        <AppIcon><IconHeartFill /></AppIcon>
+        <AppIcon :icon-name="dataItem.btnLike.iconName">
+          <IconHeartFill />
+        </AppIcon>
       </template>
       <template #default>{{ dataItem.btnLike.count }}</template>
     </AppButtonIcon>

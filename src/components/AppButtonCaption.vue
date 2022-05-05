@@ -5,19 +5,29 @@
       :data-item="dataItem"
       class="refresh__button-icon"
       @clickBtn="emitClickBtn"
-      >{{ dataItem.btnText }}</AppButtonIcon
     >
+      <template #icon>
+        <AppIcon :icon-name="dataItem.iconName">
+          <IconArrowClockwise />
+        </AppIcon>
+      </template>
+      <template #default>{{ dataItem.btnText }}</template>
+    </AppButtonIcon>
   </div>
 </template>
 
 <script>
 import AppButtonIcon from "@/components/AppButtonIcon"
+import AppIcon from "@/components/AppIcon"
+import IconArrowClockwise from "@/components/icons/IconArrowClockwise"
 
 export default {
   name: "AppButtonCaption",
 
   components: {
     AppButtonIcon,
+    AppIcon,
+    IconArrowClockwise,
   },
 
   props: {
@@ -28,7 +38,6 @@ export default {
         message: "Something went wrong",
         btnText: "Refresh",
         iconName: "arrow-clockwise",
-        iconDesc: "refresh",
       }),
     },
   },
