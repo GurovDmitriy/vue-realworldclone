@@ -32,7 +32,7 @@ export default {
     }),
 
     getDataFeed() {
-      const tags = this.getFeed.tags.map((item) => {
+      const tags = this.getFeed?.tags?.map((item) => {
         return {
           content: item,
           path: `/tags/${item}`,

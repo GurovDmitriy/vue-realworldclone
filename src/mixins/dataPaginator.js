@@ -10,15 +10,17 @@ export default {
       const countPages = getArrRange(1, Math.ceil(countItem / delim))
 
       const query = this.$route.query
-      const queryPage = this.$route.query.page
+      const queryPage = Number(this.$route.query.page)
 
       return countPages.map((item, index) => {
         let isActive = null
 
         if (index === 0 && !isNotEmptyObj(query)) {
           isActive = true
+        } else if (queryPage === item) {
+          isActive = true
         } else {
-          isActive = queryPage === item || queryPage === 1
+          isActive = false
         }
 
         return {

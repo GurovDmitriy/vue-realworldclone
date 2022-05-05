@@ -51,6 +51,12 @@ export default {
     }),
   },
 
+  watch: {
+    "$route.query"() {
+      this.fetchData()
+    },
+  },
+
   mounted() {
     this.fetchData()
   },

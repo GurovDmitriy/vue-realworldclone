@@ -28,7 +28,7 @@ export default {
   },
 
   watch: {
-    "$params.query"() {
+    "$route.query"() {
       this.fetchData()
     },
   },

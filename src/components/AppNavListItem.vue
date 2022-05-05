@@ -27,7 +27,7 @@ export default {
   color: $var-color-default;
   text-decoration: none;
 
-  &.nuxt-link-exact-active {
+  &.router-link-exact-active {
     color: $var-color-east-side;
   }
 

@@ -31,9 +31,9 @@ export default {
           },
         ],
       }),
-      validator: (value) => {
-        return Array.isArray(value.tags)
-      },
+      // validator: (value) => {
+      //   return Array.isArray(value.tags)
+      // },
     },
   },
 }

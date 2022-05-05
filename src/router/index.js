@@ -3,33 +3,30 @@ import VueRouter from "vue-router"
 import PageHome from "@/views/PageHome.vue"
 import store from "@/store"
 import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
-// import { actionTypes as actionTypesAuth } from "@/store/modules/auth"
 
-const isLoggedIn = store.getters[getterTypesAuth.getIsLoggedIn]
+function isLoggedIn() {
+  return store.getters[getterTypesAuth.getIsLoggedIn]
+}
 
 const auth = async (to, from, next) => {
-  console.log(isLoggedIn)
-  if (isLoggedIn) {
+  if (!isLoggedIn()) {
+    next({ name: "PageLogin" })
     next()
   } else {
-    // await store.dispatch(actionTypesAuth.logout)
-    next({ name: "PageLogin" })
+    next()
   }
 }
 
 const guest = async (to, from, next) => {
-  console.log(isLoggedIn)
-  if (isLoggedIn) {
+  if (isLoggedIn()) {
     next()
   } else {
-    // await store.dispatch(actionTypesAuth.logout)
     next()
   }
 }
 
 const logged = async (to, from, next) => {
-  console.log(isLoggedIn)
-  if (isLoggedIn) {
+  if (isLoggedIn()) {
     next({ name: "PageHome" })
   } else {
     next()
@@ -84,7 +81,7 @@ const routes = [
   },
 
   {
-    path: "/tag/:tag",
+    path: "/tags/:tag",
     name: "PageTag",
     component: () =>
       import(/* webpackChunkName: "PageTag" */ "@/views/PageTag.vue"),

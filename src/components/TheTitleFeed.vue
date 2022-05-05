@@ -112,7 +112,7 @@ export default {
     },
 
     getIsVisibleTitleFeed() {
-      return isNotEmptyObj(this.getUser)
+      return isNotEmptyObj(this.getUser) && isNotEmptyObj(this.getFeed)
     },
   },
 
