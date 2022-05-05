@@ -26,6 +26,7 @@
 import AppLoading from "@/components/AppLoading"
 import AppButtonCaption from "@/components/AppButtonCaption"
 import AppTagsList from "@/components/AppTagsList"
+import { actionTypes as actionTypesTag } from "@/store/modules/tag"
 
 import { mapState } from "vuex"
 
@@ -74,7 +75,7 @@ export default {
 
   methods: {
     fetchTags() {
-      console.log("refresh")
+      this.$store.dispatch(actionTypesTag.fetchTagsPopular)
     },
   },
 }
