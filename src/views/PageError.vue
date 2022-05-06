@@ -12,7 +12,7 @@ export default {
 
   props: {
     error: {
-      type: Object,
+      type: [Object, Error],
       required: false,
       default: () => ({
         message: "Error: unknown error",

@@ -5,6 +5,7 @@ import store from "@/store"
 
 import auth from "@/router/middleware/auth"
 import guest from "@/router/middleware/guest"
+import paramsUser from "@/router/middleware/paramsUser"
 import middlewarePipeline from "@/router/middlewarePipeline"
 
 Vue.use(VueRouter)
@@ -68,6 +69,10 @@ const routes = [
     name: "PageUser",
     component: () =>
       import(/* webpackChunkName: "PageUser" */ "@/views/PageUser.vue"),
+
+    meta: {
+      middleware: [paramsUser],
+    },
   },
 
   {
@@ -120,12 +125,17 @@ const routes = [
   },
 
   {
-    path: "*",
+    path: "/error",
     name: "PageError",
     component: () =>
       import(/* webpackChunkName: "PageError" */ "@/views/PageError.vue"),
 
     props: true,
+  },
+
+  {
+    path: "*",
+    redirect: { name: "PageError" },
   },
 ]
 
