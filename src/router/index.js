@@ -2,36 +2,10 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import PageHome from "@/views/PageHome.vue"
 import store from "@/store"
-import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
 
-function isLoggedIn() {
-  return store.getters[getterTypesAuth.getIsLoggedIn]
-}
-
-const auth = async (to, from, next) => {
-  if (!isLoggedIn()) {
-    next({ name: "PageLogin" })
-    next()
-  } else {
-    next()
-  }
-}
-
-const guest = async (to, from, next) => {
-  if (isLoggedIn()) {
-    next()
-  } else {
-    next()
-  }
-}
-
-const logged = async (to, from, next) => {
-  if (isLoggedIn()) {
-    next({ name: "PageHome" })
-  } else {
-    next()
-  }
-}
+import auth from "@/router/middleware/auth"
+import guest from "@/router/middleware/guest"
+import middlewarePipeline from "@/router/middlewarePipeline"
 
 Vue.use(VueRouter)
 
@@ -40,8 +14,6 @@ const routes = [
     path: "/",
     name: "PageHome",
     component: PageHome,
-
-    beforeEnter: guest,
   },
 
   {
@@ -50,7 +22,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "PageEditor" */ "@/views/PageEditor.vue"),
 
-    beforeEnter: auth,
+    meta: {
+      middleware: [auth],
+    },
   },
 
   {
@@ -58,8 +32,6 @@ const routes = [
     name: "PageFeed",
     component: () =>
       import(/* webpackChunkName: "PageFeed" */ "@/views/PageFeed.vue"),
-
-    beforeEnter: guest,
   },
 
   {
@@ -68,7 +40,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "PageSettings" */ "@/views/PageSettings.vue"),
 
-    beforeEnter: auth,
+    meta: {
+      middleware: [auth],
+    },
   },
 
   {
@@ -77,7 +51,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "PageUpdate" */ "@/views/PageUpdate.vue"),
 
-    beforeEnter: auth,
+    meta: {
+      middleware: [auth],
+    },
   },
 
   {
@@ -85,8 +61,6 @@ const routes = [
     name: "PageTag",
     component: () =>
       import(/* webpackChunkName: "PageTag" */ "@/views/PageTag.vue"),
-
-    beforeEnter: guest,
   },
 
   {
@@ -103,8 +77,6 @@ const routes = [
       import(
         /* webpackChunkName: "PageUserFavorites" */ "@/views/PageUserFavorites.vue"
       ),
-
-    beforeEnter: guest,
   },
 
   {
@@ -113,7 +85,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "PageLogin" */ "@/views/PageLogin.vue"),
 
-    beforeEnter: logged,
+    meta: {
+      middleware: [guest],
+    },
   },
 
   {
@@ -122,7 +96,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "PageRegister" */ "@/views/PageRegister.vue"),
 
-    beforeEnter: logged,
+    meta: {
+      middleware: [guest],
+    },
   },
 
   {
@@ -131,7 +107,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "PageYour" */ "@/views/PageYour.vue"),
 
-    beforeEnter: auth,
+    meta: {
+      middleware: [auth],
+    },
   },
 
   {
@@ -139,8 +117,6 @@ const routes = [
     name: "PageTest",
     component: () =>
       import(/* webpackChunkName: "PageTest" */ "@/views/PageTest.vue"),
-
-    beforeEnter: guest,
   },
 ]
 
@@ -148,6 +124,25 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+})
+
+router.beforeEach((to, from, next) => {
+  if (!to.meta.middleware) {
+    return next()
+  }
+
+  const middleware = to.meta.middleware
+  const context = {
+    to,
+    from,
+    next,
+    store,
+  }
+
+  return middleware[0]({
+    ...context,
+    next: middlewarePipeline(context, middleware, 1),
+  })
 })
 
 export default router
