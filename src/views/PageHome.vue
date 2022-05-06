@@ -39,18 +39,22 @@ export default {
 
   methods: {
     async fetchData() {
-      const pageNum = this.$route.query.page || 1
-      const itemPerPage = paginator.feedList.main
-      const feedListPayload = `_page=${pageNum}&_limit=${itemPerPage}`
+      try {
+        const pageNum = this.$route.query.page || 1
+        const itemPerPage = paginator.feedList.main
+        const feedListPayload = `_page=${pageNum}&_limit=${itemPerPage}`
 
-      await Promise.allSettled([
-        this.$store.dispatch(actionTypesTag.fetchTagsPopular),
-        this.$store.dispatch(
-          actionTypesFeedList.fetchFeedList,
-          feedListPayload
-        ),
-        this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "total"),
-      ])
+        await Promise.allSettled([
+          this.$store.dispatch(actionTypesTag.fetchTagsPopular),
+          this.$store.dispatch(
+            actionTypesFeedList.fetchFeedList,
+            feedListPayload
+          ),
+          this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "total"),
+        ])
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
   },
 }

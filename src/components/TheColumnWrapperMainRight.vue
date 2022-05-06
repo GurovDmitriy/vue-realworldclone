@@ -75,7 +75,11 @@ export default {
 
   methods: {
     fetchTags() {
-      this.$store.dispatch(actionTypesTag.fetchTagsPopular)
+      try {
+        this.$store.dispatch(actionTypesTag.fetchTagsPopular)
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
   },
 }

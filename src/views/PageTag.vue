@@ -54,7 +54,7 @@ export default {
           this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "tag"),
         ])
       } catch (err) {
-        console.log(err)
+        this.$router.push({ name: "PageError", params: { error: err } })
       }
     },
   },

@@ -40,19 +40,23 @@ export default {
 
   methods: {
     async fetchData() {
-      const userName =
-        this.$store.getters[getterTypesAuth.getCurrentUser].userName
-      const pageNum = this.$route.query.page || 1
-      const feedListPayload = `userName=${userName}&_page=${pageNum}&_limit=${paginator.feedList.main}`
+      try {
+        const userName =
+          this.$store.getters[getterTypesAuth.getCurrentUser].userName
+        const pageNum = this.$route.query.page || 1
+        const feedListPayload = `userName=${userName}&_page=${pageNum}&_limit=${paginator.feedList.main}`
 
-      await Promise.allSettled([
-        this.$store.dispatch(actionTypesTag.fetchTagsPopular),
-        this.$store.dispatch(
-          actionTypesFeedList.fetchFeedList,
-          feedListPayload
-        ),
-        this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "user"),
-      ])
+        await Promise.allSettled([
+          this.$store.dispatch(actionTypesTag.fetchTagsPopular),
+          this.$store.dispatch(
+            actionTypesFeedList.fetchFeedList,
+            feedListPayload
+          ),
+          this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "user"),
+        ])
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
   },
 }

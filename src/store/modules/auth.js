@@ -148,7 +148,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setCurrentUserFailure, err)
-      // throw err
+      throw err
     }
   },
 
@@ -167,7 +167,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setCurrentUserFailure, err)
-      // throw err
+      throw err
     }
   },
 
@@ -182,7 +182,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setCurrentUserFailure, err)
-      // // throw err
+      throw err
     }
   },
 
@@ -198,7 +198,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.updateCurrentUserFailure, err)
-      // throw err
+      throw err
     }
   },
 
@@ -211,7 +211,7 @@ const actions = {
       commit(mutationTypes.logoutSuccess)
     } catch (err) {
       commit(mutationTypes.logoutFailure, err)
-      // throw err
+      throw err
     }
   },
 }

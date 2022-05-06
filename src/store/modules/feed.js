@@ -75,7 +75,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setFeedFailure, err)
-      // throw err
+      throw err
     }
   },
 
@@ -90,7 +90,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setFeedFailure, err)
-      // throw err
+      throw err
     }
   },
 
@@ -105,7 +105,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setFeedFailure, err)
-      // throw err
+      throw err
     }
   },
 
@@ -119,7 +119,7 @@ const actions = {
       commit(mutationTypes.deleteFeedSuccess, data)
     } catch (err) {
       commit(mutationTypes.deleteFeedFailure, err)
-      // throw err
+      throw err
     }
   },
 }

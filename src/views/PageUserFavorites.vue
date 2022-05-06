@@ -81,7 +81,7 @@ export default {
           this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "like"),
         ])
       } catch (err) {
-        console.log(err)
+        this.$router.push({ name: "PageError", params: { error: err } })
       }
     },
   },

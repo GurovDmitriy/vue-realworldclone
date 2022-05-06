@@ -46,7 +46,7 @@ const actions = {
       return data[0]
     } catch (err) {
       commit(mutationTypes.setUserFailure, err)
-      // throw err
+      throw err
     }
   },
 }

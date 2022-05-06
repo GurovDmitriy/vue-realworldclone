@@ -41,7 +41,7 @@ export default {
         const userPayload = `id=${this.$store.state.feed.feed.userId}`
         await this.$store.dispatch(actionTypesUser.fetchUser, userPayload)
       } catch (err) {
-        console.log(err)
+        this.$router.push({ name: "PageError", params: { error: err } })
       }
     },
   },

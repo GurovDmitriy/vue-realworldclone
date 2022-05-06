@@ -38,6 +38,8 @@ import AppPlaceholderContent from "@/components/AppPlaceholderContent"
 
 import { mapState, mapGetters } from "vuex"
 import { getterTypes as getterTypesAuth } from "@/store/modules/auth"
+import { actionTypes as actionTypesFeedList } from "@/store/modules/feedList"
+
 import CreateFeedList from "@/mixins/dataFeedList"
 import { isNotEmptyArr } from "@/helpers/utils"
 
@@ -107,7 +109,11 @@ export default {
 
   methods: {
     fetchFeedList() {
-      console.log("refresh")
+      try {
+        this.$store.dispatch(actionTypesFeedList.fetchTagsPopular)
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
   },
 }

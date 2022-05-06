@@ -115,11 +115,15 @@ export default {
 
   methods: {
     async login() {
-      if (!this.getIsValidForm("sign")) return false
-      if (this.getIsSubmittingForm) return false
+      try {
+        if (!this.getIsValidForm("sign")) return false
+        if (this.getIsSubmittingForm) return false
 
-      await this.$store.dispatch(actionTypesAuth.login, this.field)
-      return this.$router.push({ name: "PageHome" })
+        await this.$store.dispatch(actionTypesAuth.login, this.field)
+        return this.$router.push({ name: "PageHome" })
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
   },
 }

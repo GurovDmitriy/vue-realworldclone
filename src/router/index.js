@@ -118,6 +118,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "PageTest" */ "@/views/PageTest.vue"),
   },
+
+  {
+    path: "*",
+    name: "PageError",
+    component: () =>
+      import(/* webpackChunkName: "PageError" */ "@/views/PageError.vue"),
+
+    props: true,
+  },
 ]
 
 const router = new VueRouter({

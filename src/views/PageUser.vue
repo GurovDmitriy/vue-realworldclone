@@ -80,7 +80,7 @@ export default {
           this.$store.dispatch(actionTypesFeedCount.fetchFeedCount, "user"),
         ])
       } catch (err) {
-        console.log(err)
+        this.$router.push({ name: "PageError", params: { error: err } })
       }
     },
   },

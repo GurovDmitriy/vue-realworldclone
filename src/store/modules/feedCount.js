@@ -64,7 +64,7 @@ const actions = {
       return data
     } catch (err) {
       commit(mutationTypes.setFeedCountFailure, err)
-      // throw err
+      throw err
     }
   },
 }

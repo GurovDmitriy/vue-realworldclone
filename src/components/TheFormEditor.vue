@@ -169,19 +169,26 @@ export default {
 
   methods: {
     async createFeed() {
-      if (!this.getIsValidForm("feed")) return false
-      if (this.getIsSubmittingForm) return false
+      try {
+        if (!this.getIsValidForm("feed")) return false
+        if (this.getIsSubmittingForm) return false
 
-      const field = this.field
-      const fieldDefault = this.createFieldDefault()
-      const tags = { tags: this.createTags() }
+        const field = this.field
+        const fieldDefault = this.createFieldDefault()
+        const tags = { tags: this.createTags() }
 
-      const feedNew = Object.assign({}, field, fieldDefault, tags)
+        const feedNew = Object.assign({}, field, fieldDefault, tags)
 
-      const slugFeed = getStrKebabCase(feedNew.title)
-      await this.$store.dispatch(actionTypesFeed.createFeed, feedNew)
+        const slugFeed = getStrKebabCase(feedNew.title)
+        await this.$store.dispatch(actionTypesFeed.createFeed, feedNew)
 
-      return this.$router.push({ name: "PageFeed", params: { feed: slugFeed } })
+        return this.$router.push({
+          name: "PageFeed",
+          params: { feed: slugFeed },
+        })
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
   },
 }
