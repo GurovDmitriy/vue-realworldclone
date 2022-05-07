@@ -24,7 +24,6 @@ export default {
             message: "Something went wrong",
             btnText: "Refresh",
             iconName: "arrow-clockwise",
-            iconDesc: "refresh",
           },
         },
       },

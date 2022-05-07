@@ -72,9 +72,6 @@ export default {
   data() {
     return {
       filterBar: [{ content: "Global Feed", path: "/", isActive: false }],
-      dataReady: {
-        feedList: false,
-      },
     }
   },
 
