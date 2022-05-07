@@ -178,18 +178,29 @@ export default {
     },
 
     async updateSettings() {
-      if (!this.getIsValidForm("sign")) return false
-      if (this.getIsSubmittingForm) return false
+      try {
+        if (!this.getIsValidForm("sign")) return false
+        if (this.getIsSubmittingForm) return false
 
-      await this.$store.dispatch(actionTypesAuth.updateCurrentUser, this.field)
-      this.field.password = ""
+        await this.$store.dispatch(
+          actionTypesAuth.updateCurrentUser,
+          this.field
+        )
+        this.field.password = ""
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
 
     async logout() {
-      if (this.getIsSubmittingForm) return false
+      try {
+        if (this.getIsSubmittingForm) return false
 
-      await this.$store.dispatch(actionTypesAuth.logout)
-      return this.$router.push({ name: "PageLogin" })
+        await this.$store.dispatch(actionTypesAuth.logout)
+        return this.$router.push({ name: "PageLogin" })
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
   },
 }
