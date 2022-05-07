@@ -122,22 +122,20 @@ export default {
         const index = this.getFeedList.findIndex((item) => item.id === feedId)
         const like = this.getFeedList[index].like
 
-        const setNewLike = () => {
-          const index = like.findIndex((item) => item === userId)
-
-          if (index === -1) {
-            like.push(userId)
+        const getNewLike = () => {
+          if (like.findIndex((item) => item === userId) === -1) {
+            return [...like, userId]
           } else {
-            like.splice(index, 1)
+            return like.filter((item) => item !== userId)
           }
         }
 
-        setNewLike()
+        const likeNew = getNewLike()
 
         await this.$store.dispatch(actionTypesFeedList.toggleLikeFeed, {
           id: feedId,
           indexFeed: index,
-          data: { like: like },
+          data: { like: likeNew },
         })
       } catch (err) {
         this.$router.push({ name: "PageError", params: { error: err } })
