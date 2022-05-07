@@ -49,7 +49,7 @@ export default {
 .feed-list-item {
   padding: $space-l 0;
 
-  border-bottom: 2px solid $var-color-amethyst-smoke;
+  border-bottom: 2px solid $var-color-light-accent;
 }
 
 .feed-list-item__preview {

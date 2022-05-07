@@ -10,18 +10,18 @@ $color-white: #ffffff;
 
 // palette
 $color-default: #999999;
-$color-primary: #ac89c4;
-$color-info: #3d435a;
-$color-success: #69a473;
-$color-warning: #e6943b;
+$color-primary: #7f8f82;
+$color-info: #4e6753;
+$color-success: #5ba55f;
+$color-warning: #d99527;
 $color-danger: #f44336;
 
 // palette
-$color-gray-nurse: #fbfafb;
-$color-amethyst-smoke: #f5f5f5;
-$color-east-side: #ac8ac3;
-$color-rum: #7c728d;
-$color-oxford-blue: #3c4259;
+$color-light-shades: #f7f6f2;
+$color-light-accent: #f6f7f7;
+$color-main-brand: #8bd196;
+$color-dark-accent: #818f84;
+$color-dark-shades: #4e6753;
 
 /* color css var */
 $var-color-black: var(--color-black, $color-black);
@@ -36,11 +36,11 @@ $var-color-warning: var(--color-warning, $color-warning);
 $var-color-danger: var(--color-danger, $color-danger);
 
 // var palette
-$var-color-gray-nurse: var(--color-gray-nurse, $color-gray-nurse);
-$var-color-amethyst-smoke: var(--color-amethyst-smoke, $color-amethyst-smoke);
-$var-color-east-side: var(--color-east-side, $color-east-side);
-$var-color-rum: var(--color-rum, $color-rum);
-$var-color-oxford-blue: var(--color-oxford-blue, $color-oxford-blue);
+$var-color-light-shades: var(--color-light-shades, $color-light-shades);
+$var-color-light-accent: var(--color-light-accent, $color-light-accent);
+$var-color-main-brand: var(--color-main-brand, $color-main-brand);
+$var-color-dark-accent: var(--color-dark-accent, $color-dark-accent);
+$var-color-dark-shades: var(--color-dark-shades, $color-dark-shades);
 
 /* min width document */
 $min-width-document: 360px;

@@ -44,25 +44,25 @@ export default {
   line-height: 1;
   text-decoration: none;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 4px;
 
   &--active {
     color: $var-color-white;
 
-    background-color: $var-color-east-side;
+    background-color: $var-color-main-brand;
   }
 
   &:hover {
     color: $var-color-white;
 
-    background-color: $var-color-east-side;
+    background-color: $var-color-main-brand;
   }
 }
 
 .paginator-list-item__link.nuxt-link-exact-active {
   color: $var-color-white;
 
-  background-color: $var-color-east-side;
+  background-color: $var-color-main-brand;
 }
 </style>

@@ -17,9 +17,9 @@ export default {
 
   margin-bottom: $space-s;
 
-  color: $var-color-amethyst-smoke;
+  color: $var-color-light-accent;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 6px;
   opacity: 0.2;
 }
@@ -28,7 +28,7 @@ export default {
   width: 38px;
   height: 38px;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 50%;
   opacity: 0.2;
 }

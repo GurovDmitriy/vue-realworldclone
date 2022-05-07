@@ -12,7 +12,7 @@ export default {
 .logo {
   @include caption-h3;
 
-  color: $var-color-east-side;
+  color: $var-color-main-brand;
   text-decoration: none;
 
   &:hover {

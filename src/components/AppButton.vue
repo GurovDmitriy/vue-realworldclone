@@ -42,10 +42,10 @@ export default {
   display: block;
   padding: $space-m $space-l;
 
-  color: $var-color-gray-nurse;
+  color: $var-color-light-shades;
 
   background: none;
-  background-color: $var-color-east-side;
+  background-color: $var-color-main-brand;
   border: none;
   border-radius: 4px;
 

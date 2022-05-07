@@ -29,7 +29,7 @@ export default {
   height: 27px;
   margin: 0 $space-xs;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 4px;
 }
 </style>

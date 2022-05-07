@@ -48,7 +48,7 @@ export default {
 
   list-style: none;
 
-  border-bottom: 2px solid $var-color-amethyst-smoke;
+  border-bottom: 2px solid $var-color-light-accent;
 }
 
 .filter-bar__item--active {

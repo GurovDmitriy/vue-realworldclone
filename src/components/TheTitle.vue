@@ -1,7 +1,7 @@
 <template>
   <div class="title">
     <p class="title__caption">Real World Clone</p>
-    <p class="title__text">Template for learn Nuxt 2</p>
+    <p class="title__text">Template for learn Vue 2</p>
   </div>
 </template>
 

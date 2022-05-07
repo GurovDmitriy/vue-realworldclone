@@ -36,7 +36,7 @@ export default {
   display: block;
   padding: $space-xs $space-s;
 
-  color: $var-color-gray-nurse;
+  color: $var-color-light-shades;
   line-height: 1;
   text-transform: lowercase;
   text-decoration: none;
@@ -45,7 +45,7 @@ export default {
   border-radius: 50px;
 
   &:hover {
-    background-color: $var-color-east-side;
+    background-color: $var-color-main-brand;
   }
 }
 </style>

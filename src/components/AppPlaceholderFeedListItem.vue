@@ -18,7 +18,7 @@ export default {
 .placeholder-feed-list-item {
   padding: $space-l 0;
 
-  border-bottom: 2px solid $var-color-amethyst-smoke;
+  border-bottom: 2px solid $var-color-light-accent;
 }
 
 .placeholder-feed-list-item__header {
@@ -34,7 +34,7 @@ export default {
 
   margin-right: $space-s;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 50%;
 }
 
@@ -43,7 +43,7 @@ export default {
   max-width: 80px;
   height: 28px;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 10px;
 }
 
@@ -52,7 +52,7 @@ export default {
   max-width: 400px;
   height: 50px;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 10px;
 }
 </style>

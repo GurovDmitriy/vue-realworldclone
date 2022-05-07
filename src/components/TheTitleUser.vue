@@ -91,7 +91,7 @@ export default {
 
   margin-bottom: $space-s;
 
-  color: $var-color-amethyst-smoke;
+  color: $var-color-light-accent;
   text-align: center;
 }
 
@@ -100,7 +100,7 @@ export default {
 
   margin-bottom: $space-m;
 
-  color: $var-color-amethyst-smoke;
+  color: $var-color-light-accent;
   text-align: center;
 }
 </style>

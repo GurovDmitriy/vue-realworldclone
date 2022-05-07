@@ -62,11 +62,11 @@ export default {
   display: block;
   padding: $space-xs $space-s;
 
-  color: $var-color-rum;
+  color: $var-color-dark-accent;
   line-height: 1;
 
   background: none;
-  border: 1px solid $var-color-east-side;
+  border: 1px solid $var-color-main-brand;
   border-radius: 4px;
 
   &:hover {
@@ -78,7 +78,7 @@ export default {
   }
 
   &--active {
-    color: $var-color-east-side;
+    color: $var-color-main-brand;
   }
 }
 

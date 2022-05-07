@@ -52,7 +52,7 @@ export default {
   width: 100%;
   height: 4px;
 
-  background-color: $var-color-east-side;
+  background-color: $var-color-main-brand;
   transform: translate(-50%, 0%);
 
   content: "";

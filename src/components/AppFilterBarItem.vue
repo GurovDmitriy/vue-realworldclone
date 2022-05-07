@@ -45,9 +45,9 @@ export default {
   border-bottom: 2px solid transparent;
 
   &--active {
-    color: $var-color-east-side;
+    color: $var-color-main-brand;
 
-    border-bottom: 2px solid $var-color-east-side;
+    border-bottom: 2px solid $var-color-main-brand;
   }
 
   &:hover {

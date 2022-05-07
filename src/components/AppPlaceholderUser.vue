@@ -27,7 +27,7 @@ export default {
   margin: 0 auto;
   margin-bottom: $space-m;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 50%;
   opacity: 0.2;
 }
@@ -37,10 +37,10 @@ export default {
 
   margin-bottom: $space-s;
 
-  color: $var-color-amethyst-smoke;
+  color: $var-color-light-accent;
   text-align: center;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 6px;
   opacity: 0.2;
 }
@@ -50,10 +50,10 @@ export default {
 
   margin-bottom: $space-m;
 
-  color: $var-color-amethyst-smoke;
+  color: $var-color-light-accent;
   text-align: center;
 
-  background-color: $var-color-amethyst-smoke;
+  background-color: $var-color-light-accent;
   border-radius: 6px;
   opacity: 0.2;
 }
