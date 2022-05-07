@@ -15,12 +15,13 @@ export default async function paramsTag({ to, next }) {
     })
   }
 
-  const res = await fetch(`http://localhost:3005/feeds?tags_like=${tag}`, {
+  const res = await fetch("http://localhost:3005/tags", {
     method: "GET",
   })
   const data = await res.json()
+  const checkTag = data.filter((t) => t === tag)
 
-  if (!isNotEmptyArr(data)) {
+  if (!isNotEmptyArr(checkTag)) {
     return next({
       name: "PageError",
       params: { error },
