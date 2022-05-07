@@ -5,12 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run lint && vue-cli-service build",
-    "jsonserver": "json-server --watch ./data/db.js -m ./node_modules/json-server-auth -r routes.json",
+    "jsonserver": "json-server --watch ./server/db.js -m ./node_modules/json-server-auth -r ./server/routes.json",
     "lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
     "lint:eslint": "eslint --fix --ext \".vue,.js\" --ignore-path .eslintignore .",
-    "lint:prepare": "husky install",
     "lint:prettier": "prettier --write \"**/*.{vue,js,css,less,scss,html,md}\" --ignore-path .prettierignore",
-    "lint:stylelint": "stylelint --fix \"**/*.{vue,css,less,scss,html}\" --ignore-path .stylelintignore"
+    "lint:stylelint": "stylelint --fix \"**/*.{vue,css,less,scss,html}\" --ignore-path .stylelintignore",
+    "lint:prepare": "husky install"
   },
   "dependencies": {
     "axios": "^0.27.1",
