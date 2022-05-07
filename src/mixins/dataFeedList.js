@@ -107,34 +107,42 @@ export default {
 
   methods: {
     async fetchFeedList() {
-      await this.$store.dispatch(actionTypesFeedList.fetchFeedList)
+      try {
+        await this.$store.dispatch(actionTypesFeedList.fetchFeedList)
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
 
     async toggleLike(feedId) {
-      if (!this.getIsLoggedIn) return this.$router.push({ name: "PageLogin" })
-      if (this.getIsLoadingToggleLike) return false
+      try {
+        if (!this.getIsLoggedIn) return this.$router.push({ name: "PageLogin" })
+        if (this.getIsLoadingToggleLike) return false
 
-      const userId = this.getCurrentUser.id
-      const index = this.getFeedList.findIndex((item) => item.id === feedId)
-      const like = this.getFeedList[index].like
+        const userId = this.getCurrentUser.id
+        const index = this.getFeedList.findIndex((item) => item.id === feedId)
+        const like = this.getFeedList[index].like
 
-      setNewLike()
+        const setNewLike = () => {
+          const index = like.findIndex((item) => item === userId)
 
-      function setNewLike() {
-        const index = like.findIndex((item) => item === userId)
-
-        if (index === -1) {
-          like.push(userId)
-        } else {
-          like.splice(index, 1)
+          if (index === -1) {
+            like.push(userId)
+          } else {
+            like.splice(index, 1)
+          }
         }
-      }
 
-      await this.$store.dispatch(actionTypesFeedList.toggleLikeFeed, {
-        id: feedId,
-        indexFeed: index,
-        data: { like: like },
-      })
+        setNewLike()
+
+        await this.$store.dispatch(actionTypesFeedList.toggleLikeFeed, {
+          id: feedId,
+          indexFeed: index,
+          data: { like: like },
+        })
+      } catch (err) {
+        this.$router.push({ name: "PageError", params: { error: err } })
+      }
     },
   },
 }
