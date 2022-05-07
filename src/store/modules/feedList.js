@@ -83,7 +83,7 @@ const actions = {
 
       commit(mutationTypes.toggleLikeFeedListSuccess, {
         ...payload,
-        likeResult: data.like,
+        likeResult: data.data.like,
       })
       return data
     } catch (err) {

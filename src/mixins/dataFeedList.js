@@ -80,7 +80,6 @@ export default {
           isActive,
           type: config.feedList.btnLike.type,
           iconName: config.feedList.btnLike.iconName,
-          iconDesc: config.feedList.btnLike.iconDesc,
         }
       }
 
@@ -119,20 +118,22 @@ export default {
       const index = this.getFeedList.findIndex((item) => item.id === feedId)
       const like = this.getFeedList[index].like
 
-      const likeNew = getNewLike()
+      setNewLike()
 
-      function getNewLike() {
-        if (like.findIndex((item) => item === userId) === -1) {
-          return [...like, userId]
+      function setNewLike() {
+        const index = like.findIndex((item) => item === userId)
+
+        if (index === -1) {
+          like.push(userId)
         } else {
-          return like.filter((item) => item !== userId)
+          like.splice(index, 1)
         }
       }
 
       await this.$store.dispatch(actionTypesFeedList.toggleLikeFeed, {
         id: feedId,
         indexFeed: index,
-        data: { like: likeNew },
+        data: { like: like },
       })
     },
   },
