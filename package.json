@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npm run lint && vue-cli-service build",
+    "build": "vue-cli-service build",
     "jsonserver": "json-server --watch ./server/db.js -m ./node_modules/json-server-auth -r ./server/routes.json",
     "lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
     "lint:eslint": "eslint --fix --ext \".vue,.js\" --ignore-path .eslintignore .",
