@@ -6,6 +6,8 @@ import store from "@/store"
 import auth from "@/router/middleware/auth"
 import guest from "@/router/middleware/guest"
 import paramsUser from "@/router/middleware/paramsUser"
+import paramsTag from "@/router/middleware/paramsTag"
+import paramsFeed from "@/router/middleware/paramsFeed"
 import middlewarePipeline from "@/router/middlewarePipeline"
 
 Vue.use(VueRouter)
@@ -33,6 +35,10 @@ const routes = [
     name: "PageFeed",
     component: () =>
       import(/* webpackChunkName: "PageFeed" */ "@/views/PageFeed.vue"),
+
+    meta: {
+      middleware: [paramsFeed],
+    },
   },
 
   {
@@ -62,6 +68,10 @@ const routes = [
     name: "PageTag",
     component: () =>
       import(/* webpackChunkName: "PageTag" */ "@/views/PageTag.vue"),
+
+    meta: {
+      middleware: [paramsTag],
+    },
   },
 
   {
