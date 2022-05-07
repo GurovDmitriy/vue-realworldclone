@@ -42,6 +42,14 @@ const routes = [
   },
 
   {
+    path: "/feed*",
+    redirect: {
+      name: "PageError",
+      params: { error: new Error("page not found") },
+    },
+  },
+
+  {
     path: "/settings",
     name: "PageSettings",
     component: () =>
@@ -75,6 +83,14 @@ const routes = [
   },
 
   {
+    path: "/tags*",
+    redirect: {
+      name: "PageError",
+      params: { error: new Error("page not found") },
+    },
+  },
+
+  {
     path: "/users/:user",
     name: "PageUser",
     component: () =>
@@ -92,6 +108,18 @@ const routes = [
       import(
         /* webpackChunkName: "PageUserFavorites" */ "@/views/PageUserFavorites.vue"
       ),
+
+    meta: {
+      middleware: [paramsUser],
+    },
+  },
+
+  {
+    path: "/user*",
+    redirect: {
+      name: "PageError",
+      params: { error: new Error("page not found") },
+    },
   },
 
   {
@@ -145,7 +173,10 @@ const routes = [
 
   {
     path: "*",
-    redirect: { name: "PageError" },
+    redirect: {
+      name: "PageError",
+      params: { error: new Error("page not found") },
+    },
   },
 ]
 
